@@ -1,0 +1,21 @@
+import board
+from SimpleServo import make_servo
+s1 = make_servo(board.D0)
+s2 = make_servo(board.D2)
+
+s1.angle = 0
+
+from random import randint
+def move():
+s1.angle = randint(0, 180)
+s2.angle = randint(0, 180)
+
+move()
+
+from time import sleep
+def dance(n=20, s=.2):
+for _ in range(n):
+move()
+sleep(s)
+
+dance()
