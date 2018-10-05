@@ -9,16 +9,16 @@ __Snippets of code__
 - Functions
 - Can call other callables
 - Inner functions  (basic intro, come back to closure magic shortly)
-- Classes -- \__init__ is like a function
+- Classes -- `__init__` is like a function
 
 __Code + data__
 - Methods
-- \__call__
+- `__call__`
 - Generators
 - Closures
 
 __Code as data__
-- All callables (like everything in Python) are objects
+- All callables (like everything in Python) are objects that can be:
     - Stored and retrieved
     - Passed and returned
     - Replaced
@@ -34,9 +34,9 @@ Menagerie:
 - Lambdas
 - Methods
 - Bound methods
-- Classes (\__new__, \__init__)
-- Callable objects (\__call__)
-- “Magic methods” (\__dunder__)
+- Classes (`__new__`, `__init__`)
+- Callable objects (`__call__`)
+- “Magic methods” (`__dunder__`)
 - Generators (yield)
 - Coroutines (async)
 
