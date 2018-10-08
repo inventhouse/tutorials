@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# Copyright (c) 2018 Benjamin Holt -- MIT License
+# cat fibonacci_gen.py | pbcopy
 
 def fibonacci():
     f2 = 1

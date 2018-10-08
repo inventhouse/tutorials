@@ -50,6 +50,11 @@ Example ideas:
 --------------
 - Text adventure
 - Decoder ring
+  - [Caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher)
+  - [Fibonacci sequence](https://en.wikipedia.org/wiki/Fibonacci_number)
+  - [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher)
+  - [Lehmer RNG](https://en.wikipedia.org/wiki/Lehmer_random_number_generator)
+  - RC4:
     - [RC4](https://en.wikipedia.org/wiki/RC4)
     - [CipherSaber](http://ciphersaber.gurus.org)
     - [What's the deal with RC4?](https://blog.cryptographyengineering.com/2011/12/15/whats-deal-with-rc4/)

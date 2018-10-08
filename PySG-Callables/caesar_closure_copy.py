@@ -1,17 +1,7 @@
 #!/usr/bin/env python3
-
-# caesar_closure.py  --  Closures are crazy
 # Copyright (c) 2018 Benjamin Holt -- MIT License
-
 # cat caesar_closure_copy.py | pbcopy
 
-"""
-0 1 2 3 4 5
---------> a b c d e f g h i j k l m n o p q r s t u v w x y z
-a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e
-"""
-
-# from string import ascii_letters as letters
 from string import ascii_lowercase as letters
 
 def make_caesar(shift):
@@ -35,7 +25,7 @@ def encrypt(text, cipher):
 
 
 if __name__ == "__main__":
-    text = "that's not got much spam in it"
+    text = "hi"
     print(text)
 
     caesar5 = make_caesar(5)
