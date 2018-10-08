@@ -13,14 +13,22 @@ a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e
 # from string import ascii_letters as letters
 from string import ascii_lowercase as letters
 
-def make_caesar(shift):
-    def shift_letter(letter):
-        "Shifts a single letter"
+class Caesar:
+    def __init__(self, shift):
+        "Sets up a Caesar cipher with a given shift"
+        self.shift = shift
+
+    def shift_forward(self, letter):
+        "Shifts a single letter forward through the alphabet (generally encrypting)"
         i = letters.index(letter)
-        n = (i + shift) % len(letters)
+        n = (i + self.shift) % len(letters)
         return letters[n]
 
-    return shift_letter
+    def shift_backward(self, letter):
+        "Shifts a single letter backward through the alphabet (generally decrypting)"
+        i = letters.index(letter)
+        n = (i - self.shift) % len(letters)
+        return letters[n]
 
 
 def encrypt(text, cipher):
@@ -37,11 +45,10 @@ if __name__ == "__main__":
     text = "that's not got much spam in it"
     print(text)
 
-    caesar5 = make_caesar(5)
-    print(encrypt(text, caesar5))
-
-    caesar10 = make_caesar(10)
-    print(encrypt(text, caesar10))
-
+    caesar5 = Caesar(5)
+    crypt = encrypt(text, caesar5.shift_forward)
+    print(crypt)
+    plain = encrypt(crypt, caesar5.shift_backward)
+    print(plain)
 
 #####
