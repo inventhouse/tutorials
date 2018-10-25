@@ -13,6 +13,11 @@ a b c d e f g h i j k l m n o p q r s t u v w x y z|a b c d e
 
 --------> a b c d e f g h i j k l m n o p q r s t u v w x y z
 a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e
+
+Notes:
+- Functions give a name to a snippet of code; take parameters, return results
+- Callables can call other callables (incredibly powerful, but easy to take for granted)
+- Python allows declaring functions inside other contexts, can use things from surrounding scope (similar to familiar globals)
 """
 
 

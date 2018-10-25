@@ -14,6 +14,9 @@
 | o  p q r s t u v w x y z a b c d e f g h i j k l m n |
 | n  o p q r s t u v w x y z a b c d e f g h i j k l m |
 --------------------------------------------------------
+
+Notes:
+- little bit of everything here
 """
 
 # from string import ascii_letters as letters
@@ -31,6 +34,7 @@ def vig_gen(key):
     while True:
         for c in caesars:
             yield c
+        # yield from caesars  # for...in...yield can be shortend to "yield from"
 
 
 class Vig:

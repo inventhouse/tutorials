@@ -7,6 +7,10 @@
 0 1 2 3 4 5
 --------> a b c d e f g h i j k l m n o p q r s t u v w x y z
 a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e
+
+Notes:
+- "bound methods" let you treat a method (with its instance data) as a "standalone" function
+- `instance.method` - *no* parens/args
 """
 
 # from string import ascii_letters as letters

@@ -7,6 +7,13 @@
 0 1 2 3 4 5
 --------> a b c d e f g h i j k l m n o p q r s t u v w x y z
 a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e
+
+
+Notes:
+- Groups code and data
+- `__init__` makes a class function-like
+- Methods can use instance variables instead of taking everything as parameters
+- Implement `__call__` to allow instances to act like functions
 """
 
 # from string import ascii_letters as letters

@@ -2,6 +2,15 @@
 # Copyright (c) 2018 Benjamin Holt -- MIT License
 # cat fibonacci_gen.py | pbcopy
 
+"""
+Notes:
+- Generators "magically" group code and "state"
+- Written like a function, but using `yield`
+- `yield` returns but "picks up where it left off"
+- Generators return an iterable; get values with `next()`, `for...in`
+- `for...in` is *not* repeatedly calling the "function"; calls it once, iterates over the returned generator
+"""
+
 def fibonacci():
     f2 = 1
     yield f2

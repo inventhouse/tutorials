@@ -14,13 +14,17 @@ __Snippets of code__
 - Functions
 - Can call other callables
 - Inner functions (basic intro, come back to closure magic shortly)
+- Demo: caeser_function.py
 
 __Code + data__
 - Classes -- `__init__` is like a function
 - Methods
 - `__call__`
+- Demo: caesar_class.py
 - Generators
+- Demo: fibonacci_gen.py
 - Closures
+- Demo: caesar_closure.py
 
 __Code as data__
 - All callables (like everything in Python) are objects that can be:
@@ -28,6 +32,8 @@ __Code as data__
     - Passed and returned
     - Replaced
 - bound methods
+- Demo: caesar_closure.py
+- Bonus: Vigenère.py
 - lambda?
 
 
@@ -55,6 +61,7 @@ Example ideas:
   - [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher)
   - [Lehmer RNG](https://en.wikipedia.org/wiki/Lehmer_random_number_generator)
   - RC4:
+    - Too complex to make clear examples, it was fun to code though.
     - [RC4](https://en.wikipedia.org/wiki/RC4)
     - [CipherSaber](http://ciphersaber.gurus.org)
     - [What's the deal with RC4?](https://blog.cryptographyengineering.com/2011/12/15/whats-deal-with-rc4/)

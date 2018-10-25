@@ -9,6 +9,13 @@
 0 1 2 3 4 5
 --------> a b c d e f g h i j k l m n o p q r s t u v w x y z
 a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e
+
+
+Notes:
+- "Inner functions" can use surrounding context *and bring it with them*
+- Functions that take functions as parameters
+- Functions that return functions
+- Code *as* data
 """
 
 # from string import ascii_letters as letters
