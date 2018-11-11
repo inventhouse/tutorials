@@ -24,6 +24,6 @@ __How I Wish The Pitch Wheel Worked__
 
 In live mode, I wish the MintySynth reverted to playing part 4 as programmed after a measure of no pitch wheel movement.
 
-In program mode, I want the pitch wheel to only affect notes set to the "reference note", **NEVER** change a note I've programmed to something else, and all notes set to the reference should follow the pitch wheel while programming that part.
+In program mode, I want the pitch wheel to only affect notes set to the "reference note", **NEVER** change any note I've programmed to something else, and all notes set to the reference should follow the pitch wheel while programming that part.
 
 ---
