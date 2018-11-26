@@ -1,0 +1,3 @@
+"building static html for pages"
+"run-api"
+"build"
