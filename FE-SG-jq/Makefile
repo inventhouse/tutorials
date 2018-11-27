@@ -201,6 +201,9 @@ list_seq:      #M Lists the numbered aliases
 aliases:       #M Re-create the sequence aliases from documented targets, must be copy-pasted into Makefile
 	@egrep "^\w+:\s+##" Makefile | cut -d ":" -f 1 | cat -n | sed -n -E 's/^[[:space:]]+([[:digit:]]+)[[:space:]]+(.+)/\1: \2/gp'
 
+better_aliases: # Re-create the sequence aliases from documented targets, must be copy-pasted into Makefile - recognize targets with dependencies and preserve doc comments; still wouldn't find targets with multiple things before the ':'
+	@egrep "^\w+:(\s+\w+)*\s+##" Makefile | cat -n | sed -n -E 's/^[[:space:]]+([[:digit:]]+)[[:space:]]+([^:]+):([^#]+)#(#.*)/\1: \2  \4/gp'  # HACK: make sure aliases don't use hash-hash comments (maybe doesn't matter if I move to imported aliases?)
+
 
 # # #  Sequential aliases  # # #
 1: cat_single
