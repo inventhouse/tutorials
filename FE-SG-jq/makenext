@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Simple hack invoke 'make' with a sequence of numbered targets for demoing
+# I may move this script to BenBin (or somewhere) if I use this technique again
+# Copyright (c) 2018 Benjamin Holt -- MIT License
+
+if [ "$1" == "-h" -o "$1" == "--help" ]; then
+  cat <<USAGE
+usage:
+source makenext [N]            Calls make with sequentially numbered targets,
+                               must be sourced to keep its place
+source makenext -p|--prev [M]  Jump back M targets; defaults to 1, repeating
+                               the most recent (does not validate this)
+source makenext -c|--clear     Clears the MakeNext env variable and returns
+       makenext -h|--help      Print this message and exit (DO NOT source!)
+USAGE
+  exit 0
+elif [ "$1" == "-p" -o "$1" == "--prev" ]; then
+  MakeNextPrev=$((${MakeNext:-2} - ${2:-1}))
+elif [ "$1" == "-c" -o "$1" == "--clear" ]; then
+  unset MakeNext
+  echo "Cleared"
+  return 0
+fi
+
+MakeNext=${MakeNextPrev:-${1:-${MakeNext:-"1"}}}
+unset MakeNextPrev  # HACK: this gets stuck for some reason, but doesn't show in env
+make $MakeNext
+MakeNext=$(($MakeNext + 1))
+UpNext=`egrep "^$MakeNext:" Makefile`
+echo "	(Next up $UpNext)"
+export MakeNext
+
+###

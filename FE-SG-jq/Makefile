@@ -5,7 +5,7 @@
 # Meta-targets are documented with 'hash-M'
 # 'make list_meta' prints these
 # Many targets push the demo command to the pasteboard, cmd-v to paste/edit/run
-# Sequence aliases are for easily running targets one-after-another
+# Sequential aliases are for easily running targets one-after-another with 'source ./makenext'
 # 'make list_seq' prints these
 
 default: list  #M Target to run if none is specified
@@ -30,17 +30,17 @@ single_length:      ## Get length of the single-entry example
 cat_full:           # Print the full example
 	cat $(FullFile)
 
-print_full:         ## Pretty-print the full example
+print_full:         # Pretty-print the full example
 	cat $(FullFile) | jq '.'
 
 full_length:        ## Get length of the full example
 	cat $(FullFile) | jq 'length'
 
-##
-## Arrays & slicing
 bad_full_names:     ## Full example is an array, this will error
 	cat $(FullFile) | jq '.name'
 
+##
+## Arrays & slicing
 NameFullCmd=cat $(FullFile) | jq '.[].name'
 full_names:         ## Get name from each item in full example
 	$(NameFullCmd)
@@ -146,6 +146,10 @@ the_works_explain:  ## Display the LongestByName program
 
 ##
 ## Gotchas
+cat_names:          ## Print the names.txt file
+	cat names.txt
+	@echo "NOTE: Simple list of names to make into json objects"
+
 BadNameObjectsCmd=cat names.txt | jq '[ { name: . } ]'
 bad_name_objects:   ## Make array of objects from a list of names, badly
 	$(BadNameObjectsCmd)
@@ -160,6 +164,10 @@ name_objects:       ## Actually make array of objects from a list of names
 	@echo "Copied: $(NameObjectsCmd)"
 	@echo "NOTE: -s 'slurps' items into an array, which can then be iterated and re-boxed"
 
+unwrap_object:      ## Unwrapping an object gives you a pile of various values
+	cat $(SingleFile) | jq '.[]'
+	@echo "NOTE: Unwrapping an object works, but probably won't be what you want"
+
 ##
 ## Common errors
 errors:             ## Show some common errors
@@ -173,12 +181,8 @@ errors:             ## Show some common errors
 	@echo "NOTE: Rarely actually a shell quoting issue"
 	@echo
 
-unwrap_object:      ## Unwrapping an object gives you a pile of various values
-	cat $(SingleFile) | jq '.[]'             || :
-	@echo "-- unwrapping an object works, but probably won't be what you want"
-
-done:               ## Last target
-	@echo "Q & A"
+recap:              ## Prompt to finish with recap
+	@echo "Recap"
 
 
 # # #  Meta-targets  # # #
@@ -198,33 +202,33 @@ aliases:       #M Re-create the sequence aliases from documented targets, must b
 	@egrep "^\w+:\s+##" Makefile | cut -d ":" -f 1 | cat -n | sed -n -E 's/^[[:space:]]+([[:digit:]]+)[[:space:]]+(.+)/\1: \2/gp'
 
 
-# # #  Sequence aliases  # # #
+# # #  Sequential aliases  # # #
 1: cat_single
 2: print_single
 3: single_name
 4: single_length
-5: print_full
-6: full_length
-7: bad_full_names
-8: full_names
-9: slice
-10: name_slice
-11: name_array
-12: name_duration
-13: del_fields
-14: max_duration
-15: select
-16: regex
-17: sort
-18: group_name
-19: rel_time
-20: def_utos
-21: the_works
-22: the_works_explain
+5: full_length
+6: bad_full_names
+7: full_names
+8: slice
+9: name_slice
+10: name_array
+11: name_duration
+12: del_fields
+13: max_duration
+14: select
+15: regex
+16: sort
+17: group_name
+18: rel_time
+19: def_utos
+20: the_works
+21: the_works_explain
+22: cat_names
 23: bad_name_objects
 24: name_objects
-25: errors
-26: unwrap_object
-27: done
+25: unwrap_object
+26: errors
+27: recap
 
 # # #

@@ -29,13 +29,12 @@ Introduction
 
 Demos
 -----
-The demo commands, along with brief notes, are organized in the Makefile; `make list` will display the demo targets.  Some demos will also push their command onto the pasteboard when run.  There is a set of sequential aliases that allow the demos to be run in order by repeatedly sourcing the `makenext` script.
+The demo commands, along with brief notes, are organized in the Makefile; `make list` will print the demo targets.  Some demos will also push their command onto the pasteboard when run.  There is a set of sequential aliases that allow the demos to be run in order by repeatedly sourcing (not just running) the `makenext` script.
 
 ### Simple (but useful!) examples
 (make 1-6)
 - . .foo
 - Length - it's a filter!
-
 
 ### Munging
 (make 7-12)
@@ -45,12 +44,10 @@ The demo commands, along with brief notes, are organized in the Makefile; `make 
 - Creating dictionaries with {}
 - Cleanup fields with del()
 
-
 ### More filter-like
 (make 13-17)
 - max_by(), select(), test()
 - Sort_by(), Group_by()
-
 
 ### Advanced
 (make 18-21)
