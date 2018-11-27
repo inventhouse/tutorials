@@ -11,7 +11,7 @@ Introduction
   - Web based viewer; Safari handles large traces *much* better than Chrome
   - Save to json; one flat array of span objects, we'll ignore tree / "parentId" here
 - The good, jq is:
-  - Already written
+  - Already written - install with brew / apt-get / standalone binaries available
   - Fast
   - Powerful
   - Variants / conversion tools available for other formats
