@@ -67,13 +67,14 @@ The demo commands, along with brief notes, are organized in the Makefile; `make 
 
 Recap
 -----
-- Pipe data from wherever into jq, single-quote filters
+- Pipe data from wherever into jq
+- single-quote filter programs
 - Pretty-print with '.'
 - 'length', 'max_by()', 'min_by()', 'sort_by()', 'group_by()', .[A:B] all work with arrays
 - Iterate arrays with '.[]', box into arrays with [ ] or jq -s
 - Build objects with '{}', pare them down with 'del()'
-- Filter with select()
-- Explore your data!  Try things, write scripts and reports and...
+- Narrow down with select()
+- Explore your data!  Try things!  Write scripts and reports and...
 
 
 Links
