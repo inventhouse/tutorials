@@ -34,7 +34,7 @@ The demo commands, along with brief notes, are organized in the Makefile; `make 
 ### Simple (but useful!) examples
 (make 1-6)
 - . .foo
-- Length - it's a filter!
+- length - it's a filter!
 
 ### Munging
 (make 7-12)
@@ -47,7 +47,7 @@ The demo commands, along with brief notes, are organized in the Makefile; `make 
 ### More filter-like
 (make 13-17)
 - max_by(), select(), test()
-- Sort_by(), Group_by()
+- sort_by(), Group_by()
 
 ### Advanced
 (make 18-21)
