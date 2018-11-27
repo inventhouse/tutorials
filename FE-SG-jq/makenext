@@ -9,7 +9,7 @@ if [ "$1" == "-h" -o "$1" == "--help" ]; then
 usage:
 source makenext [N]            Calls make with sequentially numbered targets,
                                must be sourced to keep its place
-source makenext -p|--prev [M]  Jump back M targets; defaults to 1, repeating
+source makenext -p|--prev [M]  Jump back M targets; defaults to 0, repeating
                                the most recent (does not validate this)
 source makenext -c|--clear     Clears the MakeNext env variable and returns
        makenext -h|--help      Print this message and exit (DO NOT source!)
