@@ -16,7 +16,7 @@ source makenext -c|--clear     Clears the MakeNext env variable and returns
 USAGE
   exit 0
 elif [ "$1" == "-p" -o "$1" == "--prev" ]; then
-  MakeNextPrev=$((${MakeNext:-2} - ${2:-1}))
+  MakeNextPrev=$((${MakeNext:-2} - $((${2:-0} + 1))))
 elif [ "$1" == "-c" -o "$1" == "--clear" ]; then
   unset MakeNext
   echo "Cleared"
@@ -24,11 +24,12 @@ elif [ "$1" == "-c" -o "$1" == "--clear" ]; then
 fi
 
 MakeNext=${MakeNextPrev:-${1:-${MakeNext:-"1"}}}
-unset MakeNextPrev  # HACK: this gets stuck for some reason, but doesn't show in env
+unset MakeNextPrev  # HACK: this gets stuck, but doesn't show in env
 make $MakeNext
 MakeNext=$(($MakeNext + 1))
 UpNext=`egrep "^$MakeNext:" Makefile`
 echo "	(Next up $UpNext)"
+unset UpNext
 export MakeNext
 
 ###
