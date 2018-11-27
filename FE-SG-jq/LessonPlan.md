@@ -29,7 +29,7 @@ Introduction
 
 Demos
 -----
-The demo commands, along with brief notes, are organized in the Makefile; `make list` will print the demo targets.  Some demos will also push their command onto the pasteboard when run.  There is a set of sequential aliases that allow the demos to be run in order by repeatedly sourcing (not just running) the `makenext` script.
+The demo commands, along with brief notes, are organized in the Makefile; `make list` will print the demo targets.  Some demos will also push their command onto the pasteboard when run using mac OS's pbcopy command; that may not be portable, sorry.  There is a set of sequential aliases that allow the demos to be run in order by repeatedly sourcing (not just running) the `makenext` script.
 
 ### Simple (but useful!) examples
 (make 1-6)
