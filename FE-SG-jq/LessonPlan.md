@@ -73,6 +73,7 @@ Recap
 - Iterate arrays with '.[]', box into arrays with [ ] or jq -s
 - Build objects with '{}', pare them down with 'del()'
 - Filter with select()
+- Explore your data!  Try things, write scripts and reports and...
 
 
 Links

@@ -41,12 +41,12 @@ bad_full_names:     ## Full example is an array, this will error
 
 ##
 ## Arrays & slicing
-NameFullCmd=cat $(FullFile) | jq '.[].name'
+NameFullCmd=cat $(FullFile) | jq '.[] | .name'
 full_names:         ## Get name from each item in full example
 	$(NameFullCmd)
 	@echo "$(NameFullCmd)" | tr -d "\n" | pbcopy
 	@echo "Copied: $(NameFullCmd)"
-	@echo "NOTE: Also works as '.[] | .name'"
+	@echo "NOTE: Also works as '.[].name'"
 
 SliceCmd=cat $(FullFile) | jq '.[-3:]'
 slice:              ## Get last 3 items
@@ -62,12 +62,12 @@ name_slice:         ## Get name from last 3 items in full example
 	@echo "Copied: $(NameSliceCmd)"
 	@echo "NOTE: Requires '|'"
 
-NameArrayCmd=cat $(FullFile) | jq '[ .[-3:] | .[].name ]'
+NameArrayCmd=cat $(FullFile) | jq '.[-3:] | [ .[] | .name ]'
 name_array:         ## Get name from last 3 items in full example as an array
 	$(NameArrayCmd)
 	@echo "$(NameArrayCmd)" | tr -d "\n" | pbcopy
 	@echo "Copied: $(NameArrayCmd)"
-	@echo "NOTE: '| [ .[].name ]' also works, but '| .[] | [ .name ]' makes multiple arrays"
+	@echo "NOTE: '| .[] | [ .name ]' makes multiple arrays"
 
 ##
 ## Dictionaries
@@ -104,7 +104,7 @@ RegexCmd=cat $(FullFile) | jq '[ .[] | select(.name | test(".*programs.*")) ]'
 regex:              ## Extracts spans matching '.*programs.*' from the full example
 	$(RegexCmd)
 	@echo "cat $(FullFile) | jq '[ .[] | select(.name | test(\".*programs.*\")) ]'" | tr -d "\n" | pbcopy  # Using $(RegexCmd) loses vital quotes
-	@echo "Copied: $(RegexCmd)"
+	@echo "Copied: cat $(FullFile) | jq '[ .[] | select(.name | test(\".*programs.*\")) ]'"
 	@echo "NOTE: select takes a filter expression; match() produces match objects, see manual for more"
 
 SortCmd=cat $(FullFile) | jq 'sort_by(.duration) | .[-5:]'
@@ -124,9 +124,9 @@ group_name:         ## Group spans by name
 ##
 ## Variables, functions
 rel_time:           ## Convert timestamps to relative
-	cat $(FullFile) | jq 'min_by(.timestamp).timestamp as $$first_ts | [ .[] | { name, duration, rel_time: (.timestamp - $$first_ts) } ]'
-	@echo "cat $(FullFile) | jq 'min_by(.timestamp).timestamp as \$$first_ts | [ .[] | { name, duration, rel_time: (.timestamp - \$$first_ts) } ]'" | tr -d "\n" | pbcopy  # '$' is a pain in make
-	@echo "Copied: cat $(FullFile) | jq 'min_by(.timestamp).timestamp as \$$first_ts | [ .[] | { name, duration, rel_time: (.timestamp - \$$first_ts) } ]'"
+	cat $(FullFile) | jq 'min_by(.timestamp).timestamp as $$first_ts | [ .[] | { name, duration, rel_time: ((.timestamp - $$first_ts) / 1000000) } ]'
+	@echo "cat $(FullFile) | jq 'min_by(.timestamp).timestamp as \$$first_ts | [ .[] | { name, duration, rel_time: ((.timestamp - \$$first_ts) / 1000000) } ]'" | tr -d "\n" | pbcopy  # '$' is a pain in make
+	@echo "Copied: cat $(FullFile) | jq 'min_by(.timestamp).timestamp as \$$first_ts | [ .[] | { name, duration, rel_time: ((.timestamp - \$$first_ts) / 1000000) } ]'"
 	@echo "NOTE: min_by returns the whole object, .timestamp to extract the micros; unbox the original array, build objects and re-box"
 
 def_utos:           ## Convert duration to seconds using a function
