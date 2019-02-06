@@ -43,6 +43,9 @@ _(( write this ))_
 
 _(( write this ))_
 
-`5a9714e Add note about python versions and anaconda environments`
-`^(?P<sha>[0-9a-fA-F]+)\s+(?P<message>.+)`
+```
+5a9714e Add note about python versions and anaconda environments
+^(?P<sha>[0-9a-fA-F]+)\s+(?P<message>.+)
+```
+
 ---
