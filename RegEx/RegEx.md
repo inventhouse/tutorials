@@ -1,6 +1,17 @@
 RegEx Thoughts
 ==============
 
+### RegEx Primer / Refresher
+
+_(( the most basic things common to most RE dialects ))_
+
+
+### Things That Are Confusing In RE Syntax:
+- Character classes/sets - the rules are different here (except when they still apply)
+- ? means different things in different places
+- ^ also has multiple meanings
+
+
 ### Composing:
 - Keep RE documentation handy; they're complicated, it's OK to not know all the syntax cold - I still don't
   - Different RE engines have different features / syntax / quirks / etc. anyway
