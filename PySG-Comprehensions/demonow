@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Set up aliases and such for doing a presentation with MakeDemo using the main demonow script
+
+RunAs=`echo "$0" | sed -nE 's/(.*)(demonow)$/\2/p'`
+
+if [ "$1" == "-h" -o "$1" == "--help" ]; then
+  cat <<USAGE
+usage:
+source ./demonow              Sources MakeDemo's demonow with a preconfigured
+                              directory. Must be sourced for the setup to stick
+source ./demonow -c|--clear   Clears the MakeDemoDir env variable and returns
+       ./demonow [-h|--help]  Print this message and exit
+USAGE
+  if [ "$RunAs" == "demonow" ]; then
+    exit 0  # Exit if run as itself
+  else
+    unset RunAs
+    return  # Return if run indirectly (ie sourced)
+  fi
+fi
+
+if [ "$RunAs" == "demonow" ]; then
+  echo "Must be run with 'source' for the setup to stick"
+  exit 1  # Not useful when run as itself
+fi
+unset RunAs
+
+if [ "$1" == "-c" -o "$1" == "--clear" ]; then  # FIXME: Completely cleaning up again is a non-goal, so maybe better not have the option at all?
+  source "../../MakeDemo//demonow" -c
+  return
+fi
+
+source "../../MakeDemo//demonow" "../../MakeDemo/"
