@@ -1,31 +1,21 @@
 PySG Comprehensions
 ===================
 
-### What is it?
-  - Compact notation to create a new list from another list, nay, iterable
-  - four parts (one optional): `new_list = [ expression for-in-iterable (if-check) ]`
-    - Always creates a new list, always iterates over all the items - _not_ "lazy" (but there _is_ a lazy version we'll get to)
+(This lesson is presented with [MakeDemo](https://github.com/inventhouse/MakeDemo), which uses a `Makefile` and `code_chunks.py` to drive and organize the examples, please let me know if this makes it hard to follow for anyone else)
 
-    ```
-    trimmed_lines = [ l.strip() for l in lines ]
+### What are they?
+- Compact notation to create a new list from another <s>list</s> iterable - [PEP 202](https://www.python.org/dev/peps/pep-0202/)
+- Four parts (one optional): `new_list = [ expression for-in-iterable (if-check) ]`
+- Expression up-front instead of at the end: `for-in-iterable: (if-check:) new_list.append(expression)`
+- If-check is optional and can be left off; no `else` clause, run `expression` or don't
+- Always creates a new list, always iterates over all the items - _not_ "lazy" (but there _is_ a lazy version we'll get to)
+- Like `map()` and `filter()` combined
+> See code_chunks.py `basic_lc`, `basic_for`, and `basic_map_filter` examples
 
-    trimmed_lines = []
-    for l in lines:
-      trimmed_lines.append(l.strip())
-    ```
-
-    ```
-    content = [ l for l in trimmed_lines if l ]
-
-    content = []
-    for l in trimmed_lines:
-      if l:
-        content.append(l)
-    ```
-
+### Getting tricky
 - Some more complex examples & tricks
-  - list-of-tuples or enumerate()
-  - if-expression
+  - List-of-tuples or enumerate()
+  - Conditional-expression
     ```
     s = str(x) if x else ""  # "Conditional expression", requires `else`
 
