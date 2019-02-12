@@ -3,39 +3,34 @@ PySG Comprehensions
 
 (This lesson is presented with [MakeDemo](https://github.com/inventhouse/MakeDemo), which uses a `Makefile` and `code_chunks.py` to drive and organize the examples, please let me know if this makes it hard to follow for anyone else)
 
+
 ### What are they?
-- Compact notation to create a new list from another <s>list</s> iterable - [PEP 202](https://www.python.org/dev/peps/pep-0202/)
+- Compact notation for creating a new list from another <s>list</s> iterable - [PEP 202](https://www.python.org/dev/peps/pep-0202/)
 - Four parts (one optional): `new_list = [ expression for-in-iterable (if-check) ]`
 - Expression up-front instead of at the end: `for-in-iterable: (if-check:) new_list.append(expression)`
 - If-check is optional and can be left off; no `else` clause, run `expression` or don't
 - Always creates a new list, always iterates over all the items - _not_ "lazy" (but there _is_ a lazy version we'll get to)
 - Like `map()` and `filter()` combined
-> See code_chunks.py `basic_lc`, `basic_for`, and `basic_map_filter` examples
+> See `basic_lc`, `basic_for`, and `basic_map_filter` examples in code_chunks.py
+
 
 ### Getting tricky
-- Some more complex examples & tricks
-  - List-of-tuples or enumerate()
-  - Conditional-expression
-    ```
-    s = str(x) if x else ""  # "Conditional expression", requires `else`
+- Unpacking tuples (e.g. `enumerate`)
+- Creating tuples
+- Conditional-expression
+  `s = str(x) if x else ""`
+- slice-assignment for "in-place" changes
+  `foo[:] = ["new", "list"]`
+  - pythontutor to understand this?
 
-    strings = [ str(i) if i else "" for i in items ]
 
-    strings = []
-    for i in items:
-      strings.append(str(i) if i else "")
-    ```
-
-  - slice-assignment for "in-place" changes
-    ```
-    import os, sys
-    for current, dirs, files in os.walk(sys.argv[1]):
-        dirs[:] = [ d for d in dirs if d != ".git" ]
-        print(current)
-    ```
-  - nested
-
-  - anatomy of the double-comprehension
+### Nesting
+- Nested for matrix / list-of-
+  - Comprehensions are expressions, fairly straightforward
+- Doubled is weirder
+  - Remember order is just like writing nested loops, still just one expression
+  - Used for flattening or combinations
+- Can be a short road to spaghetti-town, consider encapsulating inner or using for-loop for outer
     ```
     list_of_lists = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     flattened = [x for l in list_of_lists for x in l]
@@ -51,16 +46,23 @@ PySG Comprehensions
         # flattened.extend([ str(x) for x in l ])
     ```
 
-- Some overly-complex examples (horrorshow vs. better way, when to use for loops)
-  - _(( mine the examples page ))_
-
-- Some ways they can encourage good code
-  - encapsulate transform and/or condition to make code clearer and simple enough
-
 - Other types
   - Set
   - Dict
-  - Generator - reference Cale's all-hands talk
+
+- Generator expressions
+  - Basic generator
+  - Search Shakespeare
+
+
+### Good code
+- Don't use comprehensions when a for-loop is better
+  - when you need iteration but not the resulting list
+  - when you want to short-circuit (arguably my word search example would be better with a for-loop instead of islice)
+  - Consider combining for and comprehension instead of nesting
+  - When logic is long or complex, _**BUT...**_
+- On the other hand they can encourage _good_ code
+  - encapsulate transform and/or condition to make code clearer and simple enough to make a nice comprehension
 
 
 Notes and junk
