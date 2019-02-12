@@ -17,10 +17,8 @@ PySG Comprehensions
 ### Getting tricky
 - Unpacking tuples (e.g. `enumerate`)
 - Creating tuples
-- Conditional-expression
-  `s = str(x) if x else ""`
-- slice-assignment for "in-place" changes
-  `foo[:] = ["new", "list"]`
+- Conditional-expression: `s = str(x) if x else ""`
+- slice-assignment for "in-place" changes: `foo[:] = ["new", "list"]`
   - pythontutor to understand this?
 
 
@@ -31,27 +29,16 @@ PySG Comprehensions
   - Remember order is just like writing nested loops, still just one expression
   - Used for flattening or combinations
 - Can be a short road to spaghetti-town, consider encapsulating inner or using for-loop for outer
-    ```
-    list_of_lists = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-    flattened = [x for l in list_of_lists for x in l]
 
-    flattened = []
-    for l in list_of_lists:
-        for x in l:
-            flattened.append(x)
 
-    flattened = []
-    for l in list_of_lists:
-        flattened.extend(l)
-        # flattened.extend([ str(x) for x in l ])
-    ```
+### Other types
+  - Set - just use curlies: `{ i for i in items }`
+  - Dict - just use curlies and key: value: `{ k: v for (k, v) in zip(keys, values) }`
 
-- Other types
-  - Set
-  - Dict
 
-- Generator expressions
-  - Basic generator
+### Generator expressions
+  - Basic generator - just use parens: `( i for i in items )`
+    - pythontutor again here?
   - Search Shakespeare
 
 
@@ -63,19 +50,5 @@ PySG Comprehensions
   - When logic is long or complex, _**BUT...**_
 - On the other hand they can encourage _good_ code
   - encapsulate transform and/or condition to make code clearer and simple enough to make a nice comprehension
-
-
-Notes and junk
---------------
-- formatting: list = [1, 2, 3,] - no bracket padding, comp = [ i for i in list ] - padded brackets
-
-- maybe mention py2 vs py3 scope change for list comprehensions
-
-- if at beginning vs. end - brief refresher on statements & expressions
-- double comprehensions
-- comprehension in expression places (ex 8 - ex 8 is bad for other reasons)
-- nested comprehensions
-
-- generator expressions - people will want to know more about generators
 
 ---

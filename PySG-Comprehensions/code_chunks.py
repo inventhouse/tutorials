@@ -73,7 +73,28 @@ for current, dirs, files in os.walk(sys.argv[1]):
 
 ### Nesting ###
 ### matrix
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+squares = [ [ n**2 for n in row ] for row in matrix ]
+print(squares)
 
+### combinations
+fruit = ["banana", "apple", "kiwi",]
+not_fruit = ["spam", "eggs", "sausage", "bacon",]
+
+pairs = [ f"{n} and {f}" for f in fruit if len(f) > 4 for n in not_fruit if n != "spam" ]
+print pairs
+
+### combinations_for
+fruit = ["banana", "apple", "kiwi",]
+not_fruit = ["spam", "eggs", "sausage", "bacon",]
+
+pairs = []
+for f in fruit:
+    if len(f) > 4:
+        for n in not_fruit:
+            if n != "spam":
+                pairs.append(f"{n} and {f}")
+print pairs
 
 ### Other types ###
 ### set_comp
