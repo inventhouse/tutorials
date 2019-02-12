@@ -1,6 +1,12 @@
 # MakeDemo-generated files
 *.tmp.*
 
+# Various assets
+Shakespeare.txt
+Zipkin-FullTrace491b36f22a80749f.json
+Zipkin-FullTrace5960a42ec70ff240.json
+Zipkin-Single5960a42ec70ff240.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
