@@ -5,10 +5,14 @@ PySG Comprehensions
 
 
 ### What are they?
-- Compact notation for creating a new list from another <s>list</s> iterable - [PEP 202](https://www.python.org/dev/peps/pep-0202/)
+- Compact notation for creating a new list (and other collections we'll get to) from another <s>list</s> iterable - [PEP 202](https://www.python.org/dev/peps/pep-0202/)
 - Four parts (one optional): `new_list = [ expression for-in-iterable (if-check) ]`
-- Expression up-front instead of at the end: `for-in-iterable: (if-check:) new_list.append(expression)`
-- If-check is optional and can be left off; no `else` clause, run `expression` or don't
+    - A new resulting list
+    - An expression that can transform each item in the context of the loop and conditional
+    - A for-loop over an existing iterable
+    - An optional filtering `if`, item and transform are skipped if this is false-ish
+- Expression up-front instead of at the end, as it would be in a "normal" for-loop: `for-in-iterable: (if-check:) new_list.append(expression)`
+- If-check can be left off; no `else` clause, run `expression` or don't
 - Always creates a new list, always iterates over all the items - _not_ "lazy" (but there _is_ a lazy version we'll get to)
 - Like `map()` and `filter()` combined
 
@@ -16,11 +20,11 @@ PySG Comprehensions
 
 
 ### Getting tricky
-- Unpacking tuples (e.g. `enumerate`)
-- Creating tuples
-- Conditional-expression: `s = str(x) if x else ""`
-- slice-assignment for "in-place" changes: `foo[:] = ["new", "list"]`
-  - pythontutor to understand this?
+- Unpacking tuples in iteration works (e.g. `enumerate`)
+- Creating tuples (or other objects) is a transform
+- Conditional-expression is a transform: `s = str(x) if x else ""`
+- Slice-assignment for "in-place" changes: `foo[:] = ["new", "list"]`
+  - BJH: pythontutor to understand this?
 
 > See `tuple_lc`, `tuple_for`, `new_tuple_lc`, `two_kinds_of_if`, and `slice_assign` examples
 

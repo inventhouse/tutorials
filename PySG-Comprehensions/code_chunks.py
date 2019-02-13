@@ -7,6 +7,7 @@
 ### basic_lc
 with open("Klein.txt", "r") as klein:
 
+    # List-like brackets, with transform, iteration, and filtering to produce a new result
     trimmed_lines = [ l.strip() for l in klein ]
     content = [ l for l in trimmed_lines if l ]
 
@@ -15,6 +16,7 @@ with open("Klein.txt", "r") as klein:
 ### basic_for
 with open("Klein.txt", "r") as klein:
 
+    # "Spelled-out" is less dense, but more flexible
     trimmed_lines = []
     for l in klein:
       trimmed_lines.append(l.strip())
@@ -29,6 +31,7 @@ with open("Klein.txt", "r") as klein:
 ### basic_map_filter
 with open("Klein.txt", "r") as klein:
 
+    # Yet another version, here the "expression" part is also near the begininning
     trimmed_lines = list(map(lambda l: l.strip(), klein))
     content = list(filter(lambda l: l, trimmed_lines))
 
@@ -38,6 +41,7 @@ with open("Klein.txt", "r") as klein:
 ### tuple_lc
 with open("Klein.txt", "r") as klein:
 
+    # Iteration can unpack tuples and use the parts as usual, here building them into a "format string"
     numbered_lines = [ f"{num:3d}: {line}" for (num, line) in enumerate(klein) ]  # Parens optional
 
     print("".join(numbered_lines))
@@ -52,24 +56,27 @@ with open("Klein.txt", "r") as klein:
     print("".join(numbered_lines))
 
 ### new_tuple_lc
+# Can create list-of-tuples, or list-of-lists, or list-of-...
 menu = ["spam", "eggs", "sausage", "bacon",]
 item_lengths = [ (i, len(i)) for i in menu ]  # Parens required
 
 print(item_lengths)
 
 ### two_kinds_of_if
+# "Conditional expression" is just another kind of expression, another type of transform
 # [name, company, number, street, line_two, city, state, zip]
 address = [None, "edX", 141, "Portland St.", None, "Cambridge", "MA", "02139",]
-address_values = [ str(v) for v in address if v ]  # No 'else'
+address_values = [ str(v) for v in address if v ]  # Filter, no 'else' allowed
 print(address_values)  # 'Missing' values dropped
 
-address_values = [ str(v) if v else "" for v in address ]  # 'Else' required
+address_values = [ str(v) if v else "" for v in address ]  # Transform, 'else' _required_
 print(address_values)  # Empty strings for 'missing' values
 
 ### slice_assign
 import os, sys
+# Modifying 'dirs' in-place controls where os.walk will descend; slice-assignment "copies back in" the new list
 for current, dirs, files in os.walk(sys.argv[1]):
-    # dirs[:] = [ d for d in dirs if d != ".git" ]
+    # dirs[:] = [ d for d in dirs if d != ".git" ]  # Uncomment and re-run to not descend into .git directories
     print(current)
 
 ### Nesting ###
