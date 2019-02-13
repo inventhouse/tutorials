@@ -24,9 +24,8 @@ PySG Comprehensions
 - Creating tuples (or other objects) is a transform
 - Conditional-expression is a transform: `s = str(x) if x else ""`
 - Slice-assignment for "in-place" changes: `foo[:] = ["new", "list"]`
-  - BJH: pythontutor to understand this?
 
-> See `tuple_lc`, `tuple_for`, `new_tuple_lc`, `two_kinds_of_if`, and `slice_assign` examples
+> See `tuple_lc`, `tuple_for`, `new_tuple_lc`, `two_kinds_of_if`, and `slice_assign_walk` examples
 
 
 ### Nesting
@@ -49,8 +48,10 @@ PySG Comprehensions
 
 ### Generator expressions
 - Basic generator - just use parens: `( i for i in items )`
-- pythontutor again here?
+- BJH: pythontutor again here?
 - Search Shakespeare
+  - If there is time, more on how generators working incrementally saves memory even if they have to go through the whole thing
+    - BJH: test/confirm that, how much mem is used if no slice?
 
 > See `basic_genex`, `basic_gen_equiv`, `word_search_lc`, and `word_search_gen` examples
 

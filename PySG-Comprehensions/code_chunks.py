@@ -16,7 +16,7 @@ with open("Klein.txt", "r") as klein:
 ### basic_for
 with open("Klein.txt", "r") as klein:
 
-    # "Spelled-out" is less dense, but more flexible
+    # "Spelled-out" is less dense, but more flexible (can use 'continue', 'break', 'else', etc)
     trimmed_lines = []
     for l in klein:
       trimmed_lines.append(l.strip())
@@ -32,8 +32,8 @@ with open("Klein.txt", "r") as klein:
 with open("Klein.txt", "r") as klein:
 
     # Yet another version, here the "expression" part is also near the begininning
-    trimmed_lines = list(map(lambda l: l.strip(), klein))
-    content = list(filter(lambda l: l, trimmed_lines))
+    trimmed_lines = list(map(lambda l: l.strip(), klein))  # 'map' runs a callable on each item in an iterable, similar to a comprehension, but have to wrap the expression in 'lambda'
+    content = list(filter(lambda l: l, trimmed_lines))  # 'filter' runs a callable to include-or-not each item, but doesn't transform them
 
     print("\n".join(content))
 
@@ -56,7 +56,7 @@ with open("Klein.txt", "r") as klein:
     print("".join(numbered_lines))
 
 ### new_tuple_lc
-# Can create list-of-tuples, or list-of-lists, or list-of-...
+# Can create list-of-tuples, or list-of-lists, or list-of-whatever
 menu = ["spam", "eggs", "sausage", "bacon",]
 item_lengths = [ (i, len(i)) for i in menu ]  # Parens required
 
@@ -72,7 +72,17 @@ print(address_values)  # 'Missing' values dropped
 address_values = [ str(v) if v else "" for v in address ]  # Transform, 'else' _required_
 print(address_values)  # Empty strings for 'missing' values
 
-### slice_assign
+### slice_assign_aside
+l = [1,2,3]
+l_a = l
+l_a = [4,5,6]
+
+l_a = l
+l_a[1] = 'a'
+
+l_a[:] = [4,5,6,7,8,9]
+
+### slice_assign_walk
 import os, sys
 # Modifying 'dirs' in-place controls where os.walk will descend; slice-assignment "copies back in" the new list
 for current, dirs, files in os.walk(sys.argv[1]):
@@ -81,6 +91,7 @@ for current, dirs, files in os.walk(sys.argv[1]):
 
 ### Nesting ###
 ### matrix_lc
+# A comprehension _is_ a transform, working on each item (sub-list)
 matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 squares = [ [ n**2 for n in row ] for row in matrix ]
 print(squares)
@@ -89,13 +100,15 @@ print(squares)
 fruit = ["banana", "apple", "kiwi",]
 not_fruit = ["spam", "eggs", "sausage", "bacon",]
 
-pairs = [ f"{n} and {f}" for f in fruit if len(f) > 4 for n in not_fruit if n != "spam" ]
-print(pairs)
+# Comprehensions can "nest" like for-loops to produce a single resulting list; one transform with multiple for-if
+pairings = [ f"{n} and {f}" for f in fruit if len(f) > 4 for n in not_fruit if n != "spam" ]
+print(pairings)  # Pairings lists all combinations of fruits more than 4 letters long and not-fruits except spam
 
 ### combinations_for
 fruit = ["banana", "apple", "kiwi",]
 not_fruit = ["spam", "eggs", "sausage", "bacon",]
 
+# Other than expression up-front, order is exactly like nested for-if
 pairs = []
 for f in fruit:
     if len(f) > 4:
@@ -109,7 +122,7 @@ print(pairs)
 menu = ["spam", "spam", "eggs", "spam", "sausage", "spam", "bacon", "spam",]
 print(menu)
 item_set = { i for i in menu }  # Just use curlies
-print(item_set)
+print(item_set)  # Only one of each, order is _not_ preserved
 
 ### dict_comp
 menu = ["spam", "eggs", "sausage", "bacon",]
@@ -130,31 +143,30 @@ with open("Klein.txt", "r") as klein:
 
     def trimmed_lines():
         for l in klein:
-          yield l.strip()
+          yield l.strip()  # 'yield' is like "return with a bookmark", each 'next' resumes running here
 
     def content():
         for l in trimmed_lines():
           if l:
             yield l
 
-    print("\n".join(content()))
+    print("\n".join(content())) # 'join' iterates over 'content' which iterates over 'trimmed_lines' which iterates over the open file
 
 ### word_search_lc
 import re, sys
 with open(sys.argv[1], "r") as search_file:
-    numbered_lines = [ f"{num:6d}: {line}" for (num, line) in enumerate(search_file) ]
-    matches = [ l for l in numbered_lines if re.search(sys.argv[2], l, re.IGNORECASE) ]
+    numbered_lines = [ f"{num:6d}: {line}" for (num, line) in enumerate(search_file) ]  # Produces a list numbering _every_ line of the file, even if we never need them
+    matches = [ l for l in numbered_lines if re.search(sys.argv[2], l, re.IGNORECASE) ]  # Produces a list of every match, even if we don't need them all
     match_n = int(sys.argv[3])
     print("".join(matches[:match_n]))
 
 ### word_search_gen
-from itertools import islice
+from itertools import islice  # Generators are not lists, sometimes need other changes to acommodate
 import re, sys
 with open(sys.argv[1], "r") as search_file:
-    numbered_lines = ( f"{num:6d}: {line}" for (num, line) in enumerate(search_file) )
-    matches = ( l for l in numbered_lines if re.search(sys.argv[2], l, re.IGNORECASE) )
+    numbered_lines = ( f"{num:6d}: {line}" for (num, line) in enumerate(search_file) )  # Produces numbered lines as-needed
+    matches = ( l for l in numbered_lines if re.search(sys.argv[2], l, re.IGNORECASE) )  # Finds each match when requested
     match_n = int(sys.argv[3])
-    print("".join(islice(matches, match_n)))
-
+    print("".join(islice(matches, match_n)))  # Generators are not natively sliceable, 'islice' does limited iteration
 
 #####

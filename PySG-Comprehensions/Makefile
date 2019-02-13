@@ -67,10 +67,15 @@ two_kinds_of_if: $$@.tmp.py  ## Create and open two kinds of if example
 run_two_kinds_of_if: $$(subst run_,,$$@).tmp.py  ## Run the two kinds of if example
 	"./$<"
 
-slice_assign: $$@.tmp.py  ## Create and open slice assign example
+slice_assign_aside:  ## Copy slice-assignment example and open pythontutor.com
+	@echo "Copying $@, paste into pythontutor"
+	$(AtChunk) | $(QuietCopy)
+	open "http://pythontutor.com/visualize.html#mode=edit"
+
+slice_assign_walk: $$@.tmp.py  ## Create and open slice assign example
 	@$(EDITOR) "$<"
 
-run_slice_assign: $$(subst run_,,$$@).tmp.py  ## Run the slice assign example
+run_slice_assign_walk: $$(subst run_,,$$@).tmp.py  ## Run the slice assign example
 	"./$<" ..
 
 ## Nesting ##
