@@ -1,3 +1,4 @@
+# Keeping all the examples in a single file makes them easier to read, edit, and keep consistent with one another; MakeDemo will chunk them out for individual demos.
 
 ### header
 #!/usr/bin/env python3
@@ -77,12 +78,12 @@ matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 squares = [ [ n**2 for n in row ] for row in matrix ]
 print(squares)
 
-### combinations
+### combinations_lc
 fruit = ["banana", "apple", "kiwi",]
 not_fruit = ["spam", "eggs", "sausage", "bacon",]
 
 pairs = [ f"{n} and {f}" for f in fruit if len(f) > 4 for n in not_fruit if n != "spam" ]
-print pairs
+print(pairs)
 
 ### combinations_for
 fruit = ["banana", "apple", "kiwi",]
@@ -94,7 +95,7 @@ for f in fruit:
         for n in not_fruit:
             if n != "spam":
                 pairs.append(f"{n} and {f}")
-print pairs
+print(pairs)
 
 ### Other types ###
 ### set_comp
@@ -117,7 +118,7 @@ with open("Klein.txt", "r") as klein:
 
     print("\n".join(content))
 
-### basic_gen
+### basic_gen_equiv
 with open("Klein.txt", "r") as klein:
 
     def trimmed_lines():

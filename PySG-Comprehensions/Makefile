@@ -10,6 +10,13 @@ include $(MakeDemoDir)/MakeDemo.make
 ChunkFile := "code_chunks.py"
 EDITOR := cat
 
+%.tmp.py:
+	@$(ChunkNamed) header > "$@"
+	@$(ChunkNamed) "$(@:.tmp.py=)" >> "$@"
+	@chmod a+x "$@"
+
+.SECONDEXPANSION:
+
 ## Basics ##
 intro:  ## Open the README with the lesson outline
 	@$(EDITOR) README.md
@@ -17,91 +24,114 @@ intro:  ## Open the README with the lesson outline
 show_klein:  ## Show the lines we'll be working with
 	cat Klein.txt
 
-basic_lc:  ## Create and open basic listcomp example
-	@$(ChunkNamed) header > "$@.tmp.py"
-	@$(AtChunk) >> "$@.tmp.py"
-	@chmod a+x "$@.tmp.py"
-	@$(EDITOR) "$@.tmp.py"
+basic_lc: $$@.tmp.py  ## Create and open basic listcomp example
+	@$(EDITOR) "$<"
 
-run_basic_lc:  ## Run the basic listcomp example
-	./basic_lc.tmp.py
+run_basic_lc: $$(subst run_,,$$@).tmp.py  ## Run the basic listcomp example
+	"./$<"
 
-basic_for:  ## Create and open equivalent basic for-loop example
-	@$(ChunkNamed) header > "$@.tmp.py"
-	@$(AtChunk) >> "$@.tmp.py"
-	@chmod a+x "$@.tmp.py"
-	@$(EDITOR) "$@.tmp.py"
+basic_for: $$@.tmp.py  ## Create and open equivalent basic for-loop example
+	@$(EDITOR) "$<"
 
-run_basic_for:  ## Run the equivalent basic for-loop example
-	./basic_for.tmp.py
+run_basic_for: $$(subst run_,,$$@).tmp.py  ## Run the equivalent basic for-loop example
+	"./$<"
 
-basic_map_filter:  ## Create and open equivalent basic map-filter example
-	@$(ChunkNamed) header > "$@.tmp.py"
-	@$(AtChunk) >> "$@.tmp.py"
-	@chmod a+x "$@.tmp.py"
-	@$(EDITOR) "$@.tmp.py"
+basic_map_filter: $$@.tmp.py  ## Create and open equivalent basic map-filter example
+	@$(EDITOR) "$<"
 
-run_basic_map_filter:  ## Run the equivalent basic map-filter example
-	./basic_map_filter.tmp.py
+run_basic_map_filter: $$(subst run_,,$$@).tmp.py  ## Run the equivalent basic map-filter example
+	"./$<"
 
 ## Trickier ##
-tuple_lc:  ## Create and open comp over tuples example
-	@$(ChunkNamed) header > "$@.tmp.py"
-	@$(AtChunk) >> "$@.tmp.py"
-	@chmod a+x "$@.tmp.py"
-	@$(EDITOR) "$@.tmp.py"
+tuple_lc: $$@.tmp.py  ## Create and open comp over tuples example
+	@$(EDITOR) "$<"
 
-run_tuple_lc:  ## Run the comp over tuples example
-	./tuple_lc.tmp.py
+run_tuple_lc: $$(subst run_,,$$@).tmp.py  ## Run the comp over tuples example
+	"./$<"
 
-tuple_for:  # # Create and open equivalent basic loop over tuples example
-	@$(ChunkNamed) header > "$@.tmp.py"
-	@$(AtChunk) >> "$@.tmp.py"
-	@chmod a+x "$@.tmp.py"
-	@$(EDITOR) "$@.tmp.py"
+tuple_for: $$@.tmp.py  # # Create and open equivalent loop over tuples example
+	@$(EDITOR) "$<"
 
-run_tuple_for:  # # Run the equivalent basic loop over tuples example
-	./tuple_for.tmp.py
+run_tuple_for: $$(subst run_,,$$@).tmp.py  # # Run the equivalent basic loop over tuples example
+	"./$<"
 
-new_tuple_lc:  ## Create and open new tuples example
-	@$(ChunkNamed) header > "$@.tmp.py"
-	@$(AtChunk) >> "$@.tmp.py"
-	@chmod a+x "$@.tmp.py"
-	@$(EDITOR) "$@.tmp.py"
+new_tuple_lc: $$@.tmp.py  ## Create and open new tuples example
+	@$(EDITOR) "$<"
 
-run_new_tuple_lc:  ## Run the new tuples example
-	./new_tuple_lc.tmp.py
+run_new_tuple_lc: $$(subst run_,,$$@).tmp.py  ## Run the new tuples example
+	"./$<"
 
-two_kinds_of_if:  ## Create and open two kinds of if example
-	@$(ChunkNamed) header > "$@.tmp.py"
-	@$(AtChunk) >> "$@.tmp.py"
-	@chmod a+x "$@.tmp.py"
-	@$(EDITOR) "$@.tmp.py"
+two_kinds_of_if: $$@.tmp.py  ## Create and open two kinds of if example
+	@$(EDITOR) "$<"
 
-run_two_kinds_of_if:  ## Run the two kinds of if example
-	./two_kinds_of_if.tmp.py
+run_two_kinds_of_if: $$(subst run_,,$$@).tmp.py  ## Run the two kinds of if example
+	"./$<"
+
+slice_assign: $$@.tmp.py  ## Create and open slice assign example
+	@$(EDITOR) "$<"
+
+run_slice_assign: $$(subst run_,,$$@).tmp.py  ## Run the slice assign example
+	"./$<" ..
+
+## Nesting ##
+matrix: $$@.tmp.py  ## Create and open matrix example
+	@$(EDITOR) "$<"
+
+run_matrix: $$(subst run_,,$$@).tmp.py  ## Run the matrix example
+	"./$<"
+
+combinations_lc: $$@.tmp.py  ## Create and open combinations listcomp example
+	@$(EDITOR) "$<"
+
+run_combinations_lc: $$(subst run_,,$$@).tmp.py  ## Run the combinations listcomp example
+	"./$<"
+
+combinations_for: $$@.tmp.py  ## Create and open equivalent combinations loop example
+	@$(EDITOR) "$<"
+
+run_combinations_for: $$(subst run_,,$$@).tmp.py  ## Run the equivalent combinations loop example
+	"./$<"
+
+## Other Types ##
+set_comp: $$@.tmp.py  ## Create and open set comprehension example
+	@$(EDITOR) "$<"
+
+run_set_comp: $$(subst run_,,$$@).tmp.py  ## Run the set comprehension example
+	"./$<"
+
+dict_comp: $$@.tmp.py  ## Create and open dict comprehension example
+	@$(EDITOR) "$<"
+
+run_dict_comp: $$(subst run_,,$$@).tmp.py  ## Run the dict comprehension example
+	"./$<"
 
 ## Generator Expressions ##
+basic_genex: $$@.tmp.py  ## Create and open the basic generator expression example
+	@$(EDITOR) "$<"
+
+run_basic_genex: $$(subst run_,,$$@).tmp.py  ## Run the basic generator expression example
+	"./$<"
+
+basic_gen_equiv: $$@.tmp.py  ## Create and open the equivalent generator example
+	@$(EDITOR) "$<"
+
+run_basic_gen_equiv: $$(subst run_,,$$@).tmp.py  ## Run the the equivalent generator example
+	"./$<"
+
 Shakespeare.txt:  # Download complete works of shakespeare
 	curl -o Shakespeare.txt "https://www.gutenberg.org/files/100/100-0.txt"
 
-word_search_lc:  ## Create and open the list comprehension version of word search
-	@$(ChunkNamed) header > "$@.tmp.py"
-	@$(AtChunk) >> "$@.tmp.py"
-	@chmod a+x "$@.tmp.py"
-	@$(EDITOR) "$@.tmp.py"
+word_search_lc: $$@.tmp.py  ## Create and open the list comprehension version of word search
+	@$(EDITOR) "$<"
 
-run_word_search_lc: Shakespeare.txt  ## Run the list comprehension version of word search
-	/usr/bin/time -l ./word_search_lc.tmp.py "Shakespeare.txt" "beauty" 10 2>&1 | head -13
+run_word_search_lc: $$(subst run_,,$$@).tmp.py Shakespeare.txt  ## Run the list comprehension version of word search
+	/usr/bin/time -l "./$<" "Shakespeare.txt" "beauty" 10 2>&1 | head -13
 
-word_search_gen:  ## Create and open the generator expression version of word search
-	@$(ChunkNamed) header > "$@.tmp.py"
-	@$(AtChunk) >> "$@.tmp.py"
-	@chmod a+x "$@.tmp.py"
-	@$(EDITOR) "$@.tmp.py"
+word_search_gen: $$@.tmp.py  ## Create and open the generator expression version of word search
+	@$(EDITOR) "$<"
 
-run_word_search_gen: Shakespeare.txt  ## Run the generator expression version of word search
-	/usr/bin/time -l ./word_search_gen.tmp.py "Shakespeare.txt" "beauty" 10  2>&1 | head -13
+run_word_search_gen: $$(subst run_,,$$@).tmp.py Shakespeare.txt  ## Run the generator expression version of word search
+	/usr/bin/time -l "./$<" "Shakespeare.txt" "beauty" 10  2>&1 | head -13
 
 py_hi:  ## Measure Python printing 'hi'
 	/usr/bin/time -l python -c "print('hi')" 2>&1 | head -3
@@ -111,7 +141,7 @@ echo_hi:  # Measure echo printing 'hi'
 
 # # #
 clean:  #M Delete the .tmp.py files
-	rm *.tmp.py
+	rm -f *.tmp.py
 
 include sequence.tmp.mk
 # # #
