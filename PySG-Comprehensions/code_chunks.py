@@ -73,7 +73,7 @@ for current, dirs, files in os.walk(sys.argv[1]):
     print(current)
 
 ### Nesting ###
-### matrix
+### matrix_lc
 matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 squares = [ [ n**2 for n in row ] for row in matrix ]
 print(squares)

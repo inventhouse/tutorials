@@ -74,10 +74,10 @@ run_slice_assign: $$(subst run_,,$$@).tmp.py  ## Run the slice assign example
 	"./$<" ..
 
 ## Nesting ##
-matrix: $$@.tmp.py  ## Create and open matrix example
+matrix_lc: $$@.tmp.py  ## Create and open matrix example
 	@$(EDITOR) "$<"
 
-run_matrix: $$(subst run_,,$$@).tmp.py  ## Run the matrix example
+run_matrix_lc: $$(subst run_,,$$@).tmp.py  ## Run the matrix example
 	"./$<"
 
 combinations_lc: $$@.tmp.py  ## Create and open combinations listcomp example

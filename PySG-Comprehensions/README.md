@@ -11,6 +11,7 @@ PySG Comprehensions
 - If-check is optional and can be left off; no `else` clause, run `expression` or don't
 - Always creates a new list, always iterates over all the items - _not_ "lazy" (but there _is_ a lazy version we'll get to)
 - Like `map()` and `filter()` combined
+
 > See `basic_lc`, `basic_for`, and `basic_map_filter` examples in code_chunks.py
 
 
@@ -21,6 +22,8 @@ PySG Comprehensions
 - slice-assignment for "in-place" changes: `foo[:] = ["new", "list"]`
   - pythontutor to understand this?
 
+> See `tuple_lc`, `tuple_for`, `new_tuple_lc`, `two_kinds_of_if`, and `slice_assign` examples
+
 
 ### Nesting
 - Nested for matrix / list-of-
@@ -30,16 +33,22 @@ PySG Comprehensions
   - Used for flattening or combinations
 - Can be a short road to spaghetti-town, consider encapsulating inner or using for-loop for outer
 
+> See `matrix_lc`, `combinations_lc`, and `combinations_for` examples
+
 
 ### Other types
-  - Set - just use curlies: `{ i for i in items }`
-  - Dict - just use curlies and key: value: `{ k: v for (k, v) in zip(keys, values) }`
+- Set - just use curlies: `{ i for i in items }`
+- Dict - just use curlies and key: value: `{ k: v for (k, v) in zip(keys, values) }`
+
+> See `set_comp` and `dict_comp` examples
 
 
 ### Generator expressions
-  - Basic generator - just use parens: `( i for i in items )`
-    - pythontutor again here?
-  - Search Shakespeare
+- Basic generator - just use parens: `( i for i in items )`
+- pythontutor again here?
+- Search Shakespeare
+
+> See `basic_genex`, `basic_gen_equiv`, `word_search_lc`, and `word_search_gen` examples
 
 
 ### Good code
