@@ -48,7 +48,6 @@ PySG Comprehensions
 
 ### Generator expressions
 - Basic generator - just use parens: `( i for i in items )`
-- BJH: pythontutor again here?
 - Search Shakespeare
   - If there is time, more on how generators working incrementally saves memory even if they have to go through the whole thing
     - BJH: test/confirm that, how much mem is used if no slice?
