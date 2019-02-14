@@ -72,15 +72,15 @@ print(address_values)  # 'Missing' values dropped
 address_values = [ str(v) if v else "" for v in address ]  # Transform, 'else' _required_
 print(address_values)  # Empty strings for 'missing' values
 
-### slice_assign_aside
+### slice_assign_viz
 l = [1,2,3]
-l_a = l
-l_a = [4,5,6]
+l_a = l  # Points to the same list as 'l'
+l_a = [4,5,6]  # Now points to a different list; 'l' is unchanged
 
-l_a = l
-l_a[1] = 'a'
+l_a = l  # Points to the same list as 'l'
+l_a[1] = 'a'  # Change an item in that list
 
-l_a[:] = [4,5,6,7,8,9]
+l_a[:] = [4,5,6,7,8,9]  # Change *all* the items in that list
 
 ### slice_assign_walk
 import os, sys
@@ -130,6 +130,28 @@ item_lengths = { i: len(i) for i in menu }  # Curlies and key: value
 print(item_lengths)
 
 ### Generators ###
+### genex_viz
+lines = [
+    "A mathematician named Klein",
+    "Thought the Möbius band was divine.",
+    "Said he: “If you glue",
+    "The edges of two,",
+    "You’ll get a weird bottle like mine.”",
+    "- Leo Moser",
+]
+
+numbered_lines = [ f"{n}  {l}" for (n, l) in enumerate(lines) ]  # Brackets here, parens below, that's the _only_ change
+
+for l in numbered_lines:
+    print(l)
+
+del numbered_lines, l
+
+numbered_lines = ( f"{n}  {l}" for (n, l) in enumerate(lines) )  # Produces each line as-needed, no second copy of all the lines!
+
+for l in numbered_lines:
+    print(l)
+
 ### basic_genex
 with open("Klein.txt", "r") as klein:
 

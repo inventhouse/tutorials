@@ -67,7 +67,7 @@ two_kinds_of_if: $$@.tmp.py  ## Create and open two kinds of if example
 run_two_kinds_of_if: $$(subst run_,,$$@).tmp.py  ## Run the two kinds of if example
 	"./$<"
 
-slice_assign_aside:  ## Copy slice-assignment example and open pythontutor.com
+slice_assign_viz:  ## Copy slice-assignment example and open pythontutor.com
 	@echo "Copying $@, paste into pythontutor"
 	$(AtChunk) | $(QuietCopy)
 	open "http://pythontutor.com/visualize.html#mode=edit"
@@ -111,6 +111,11 @@ run_dict_comp: $$(subst run_,,$$@).tmp.py  ## Run the dict comprehension example
 	"./$<"
 
 ## Generator Expressions ##
+genex_viz:  ## Copy generator expression example and open pythontutor.com
+	@echo "Copying $@, paste into pythontutor"
+	$(AtChunk) | $(QuietCopy)
+	open "http://pythontutor.com/visualize.html#mode=edit"
+
 basic_genex: $$@.tmp.py  ## Create and open the basic generator expression example
 	@$(EDITOR) "$<"
 
