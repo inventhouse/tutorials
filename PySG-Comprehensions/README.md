@@ -48,9 +48,9 @@ PySG Comprehensions
 
 ### Generator expressions
 - Basic generator - just use parens: `( i for i in items )`
+  - Generator produces each line as-needed
 - Search Shakespeare
-  - If there is time, more on how generators working incrementally saves memory even if they have to go through the whole thing
-    - BJH: test/confirm that, how much mem is used if no slice?
+  - Generators working incrementally save memory even if they have to do just as much work!
 
 > See `basic_genex`, `basic_gen_equiv`, `word_search_lc`, and `word_search_gen` examples
 
