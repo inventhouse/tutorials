@@ -19,12 +19,12 @@ with open("Klein.txt", "r") as klein:
     # "Spelled-out" is less dense, but more flexible (can use 'continue', 'break', 'else', etc)
     trimmed_lines = []
     for l in klein:
-      trimmed_lines.append(l.strip())
+        trimmed_lines.append(l.strip())
 
     content = []
     for l in trimmed_lines:
-      if l:
-        content.append(l)
+        if l:
+            content.append(l)
 
     print("\n".join(content))
 
@@ -176,8 +176,8 @@ with open("Klein.txt", "r") as klein:
 
     def content():
         for l in trimmed_lines():
-          if l:
-            yield l
+            if l:
+                yield l
 
     # 'join' iterates over 'content' which iterates over 'trimmed_lines' which iterates over the open file
     print("\n".join(content()))

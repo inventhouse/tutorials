@@ -8,7 +8,8 @@ default: list  #M Target to run if none is specified
 
 include $(MakeDemoDir)/MakeDemo.make
 ChunkFile := "code_chunks.py"
-EDITOR := cat
+# EDITOR := cat
+EDITOR := atom
 EditorAt := "$(MakeDemoDir)/atom_at"
 ReadFile := "README.md"
 ReadAt = $(EditorAt) $(ReadFile)
@@ -59,10 +60,10 @@ tuple_lc: $$@.tmp.py  ## Create and open comp over tuples example
 run_tuple_lc: $$(subst run_,,$$@).tmp.py  ## Run the comp over tuples example
 	"./$<"
 
-tuple_for: $$@.tmp.py  # # Create and open equivalent loop over tuples example
+tuple_for: $$@.tmp.py  # Create and open equivalent loop over tuples example
 	@$(EDITOR) "$<"
 
-run_tuple_for: $$(subst run_,,$$@).tmp.py  # # Run the equivalent basic loop over tuples example
+run_tuple_for: $$(subst run_,,$$@).tmp.py  # Run the equivalent basic loop over tuples example
 	"./$<"
 
 new_tuple_lc: $$@.tmp.py  ## Create and open new tuples example
@@ -138,13 +139,13 @@ genex_viz:  ## Copy generator expression example and open pythontutor.com
 basic_genex: $$@.tmp.py  ## Create and open the basic generator expression example
 	@$(EDITOR) "$<"
 
-run_basic_genex: $$(subst run_,,$$@).tmp.py  ## Run the basic generator expression example
+run_basic_genex: $$(subst run_,,$$@).tmp.py  # Run the basic generator expression example
 	"./$<"
 
 basic_gen_equiv: $$@.tmp.py  ## Create and open the equivalent generator example
 	@$(EDITOR) "$<"
 
-run_basic_gen_equiv: $$(subst run_,,$$@).tmp.py  ## Run the the equivalent generator example
+run_basic_gen_equiv: $$(subst run_,,$$@).tmp.py  # Run the the equivalent generator example
 	"./$<"
 
 Shakespeare.txt:  # Download complete works of shakespeare
@@ -154,6 +155,7 @@ word_search_lc: $$@.tmp.py  ## Create and open the list comprehension version of
 	@$(EDITOR) "$<"
 
 run_word_search_lc: $$(subst run_,,$$@).tmp.py Shakespeare.txt  ## Run the list comprehension version of word search
+	ls -l "Shakespeare.txt"
 	/usr/bin/time -l "./$<" "Shakespeare.txt" "beauty" 10 2>&1 | head -13
 
 word_search_gen: $$@.tmp.py  ## Create and open the generator expression version of word search

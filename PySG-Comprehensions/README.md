@@ -37,7 +37,7 @@ PySG Comprehensions
     - Used for flattening or combinations
 - Can be a short road to spaghetti-town, consider encapsulating inner or using for-loop for outer
 
-> See `matrix_lc`, `combinations_lc`, and `combinations_for` examples
+> See `matrix_lc`, `combinations_for`, and `combinations_lc` examples
 
 
 ### Other types
