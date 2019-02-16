@@ -9,6 +9,10 @@ default: list  #M Target to run if none is specified
 include $(MakeDemoDir)/MakeDemo.make
 ChunkFile := "code_chunks.py"
 EDITOR := cat
+EditorAt := "$(MakeDemoDir)/atom_at"
+ReadFile := "README.md"
+ReadAt = $(EditorAt) $(ReadFile)
+# ReadChunk = $(GetChunk) "README.md"
 
 %.tmp.py:
 	@$(ChunkNamed) header > "$@"
@@ -18,11 +22,14 @@ EDITOR := cat
 .SECONDEXPANSION:
 
 ## Basics ##
-intro:  ## Open the README with the lesson outline
+intro:  # # Open the README with the lesson outline
 	@$(EDITOR) README.md
 
 show_klein:  ## Show the lines we'll be working with
 	cat Klein.txt
+
+show_what:  ## Show the "what are they?" section
+	@$(ReadAt) "### What are they?"
 
 basic_lc: $$@.tmp.py  ## Create and open basic listcomp example
 	@$(EDITOR) "$<"
@@ -43,6 +50,9 @@ run_basic_map_filter: $$(subst run_,,$$@).tmp.py  ## Run the equivalent basic ma
 	"./$<"
 
 ## Trickier ##
+show_tricky:  ## Show the "getting tricky" section
+	@$(ReadAt) "### Getting tricky"
+
 tuple_lc: $$@.tmp.py  ## Create and open comp over tuples example
 	@$(EDITOR) "$<"
 
@@ -79,6 +89,9 @@ run_slice_assign_walk: $$(subst run_,,$$@).tmp.py  ## Run the slice assign examp
 	"./$<" ..
 
 ## Nesting ##
+show_nesting:  ## Show the "nesting" section
+	@$(ReadAt) "### Nesting"
+
 matrix_lc: $$@.tmp.py  ## Create and open matrix example
 	@$(EDITOR) "$<"
 
@@ -98,6 +111,9 @@ run_combinations_for: $$(subst run_,,$$@).tmp.py  ## Run the equivalent combinat
 	"./$<"
 
 ## Other Types ##
+show_other:  ## Show the "other types" section
+	@$(ReadAt) "### Other types"
+
 set_comp: $$@.tmp.py  ## Create and open set comprehension example
 	@$(EDITOR) "$<"
 
@@ -111,6 +127,9 @@ run_dict_comp: $$(subst run_,,$$@).tmp.py  ## Run the dict comprehension example
 	"./$<"
 
 ## Generator Expressions ##
+show_gen:  ## Show the "generator expressions" section
+	@$(ReadAt) "### Generator expressions"
+
 genex_viz:  ## Copy generator expression example and open pythontutor.com
 	@echo "Copying $@, paste into pythontutor"
 	$(AtChunk) | $(QuietCopy)
@@ -145,6 +164,9 @@ run_word_search_gen: $$(subst run_,,$$@).tmp.py Shakespeare.txt  ## Run the gene
 
 py_hi:  ## Measure Python printing 'hi'
 	/usr/bin/time -l python -c "print('hi')" 2>&1 | head -3
+
+show_good:  ## Show the "good code" section
+	@$(ReadAt) "### Good code"
 
 echo_hi:  # Measure echo printing 'hi'
 	/usr/bin/time -l echo hi 2>&1 | head -3

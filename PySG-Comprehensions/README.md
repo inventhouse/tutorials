@@ -5,7 +5,7 @@ PySG Comprehensions
 
 
 ### What are they?
-- Compact notation for creating a new list (and other collections we'll get to) from another <s>list</s> iterable - [PEP 202](https://www.python.org/dev/peps/pep-0202/)
+- Compact notation for creating a new list (and other collections we'll get to) from another <s>list</s> iterable - [Documentation](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)
 - Four parts (one optional): `new_list = [ expression for-in-iterable (if-check) ]`
     - A new resulting list
     - An expression that can transform each item in the context of the loop and conditional
