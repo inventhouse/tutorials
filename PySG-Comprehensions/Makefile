@@ -98,16 +98,16 @@ matrix_lc: $$@.tmp.py  ## Create and open matrix example
 run_matrix_lc: $$(subst run_,,$$@).tmp.py  ## Run the matrix example
 	"./$<"
 
-combinations_lc: $$@.tmp.py  ## Create and open combinations listcomp example
-	@$(EDITOR) "$<"
-
-run_combinations_lc: $$(subst run_,,$$@).tmp.py  ## Run the combinations listcomp example
-	"./$<"
-
 combinations_for: $$@.tmp.py  ## Create and open equivalent combinations loop example
 	@$(EDITOR) "$<"
 
 run_combinations_for: $$(subst run_,,$$@).tmp.py  ## Run the equivalent combinations loop example
+	"./$<"
+
+combinations_lc: $$@.tmp.py  ## Create and open combinations listcomp example
+	@$(EDITOR) "$<"
+
+run_combinations_lc: $$(subst run_,,$$@).tmp.py  ## Run the combinations listcomp example
 	"./$<"
 
 ## Other Types ##

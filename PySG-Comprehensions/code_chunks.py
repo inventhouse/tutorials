@@ -32,8 +32,10 @@ with open("Klein.txt", "r") as klein:
 with open("Klein.txt", "r") as klein:
 
     # Yet another version, here the "expression" part is also near the begininning
-    trimmed_lines = list(map(lambda l: l.strip(), klein))  # 'map' runs a callable on each item in an iterable, similar to a comprehension, but have to wrap the expression in 'lambda'
-    content = list(filter(lambda l: l, trimmed_lines))  # 'filter' runs a callable to include-or-not each item, but doesn't transform them
+    # 'map' runs a callable on each item in an iterable, similar to a comprehension, but have to wrap the expression in 'lambda'
+    trimmed_lines = list(map(lambda l: l.strip(), klein))
+    # 'filter' runs a callable to include-or-not each item, but doesn't transform them
+    content = list(filter(lambda l: l, trimmed_lines))
 
     print("\n".join(content))
 
@@ -66,6 +68,7 @@ print(item_lengths)
 # "Conditional expression" is just another kind of expression, another type of transform
 # [name, company, number, street, line_two, city, state, zip]
 address = [None, "edX", 141, "Portland St.", None, "Cambridge", "MA", "02139",]
+
 address_values = [ str(v) for v in address if v ]  # Filter, no 'else' allowed
 print(address_values)  # 'Missing' values dropped
 
@@ -96,31 +99,32 @@ matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 squares = [ [ n**2 for n in row ] for row in matrix ]
 print(squares)
 
+### combinations_for
+fruit = ["banana", "apple", "kiwi",]
+not_fruit = ["spam", "eggs", "sausage", "bacon",]
+
+pairings = []
+for f in fruit:
+    if len(f) > 4:
+        for n in not_fruit:
+            if n != "spam":
+                pairings.append(f"{n} and {f}")
+
+# Pairings lists all combinations of fruits more than 4 letters long and not-fruits except spam
+print(pairings)
+
 ### combinations_lc
 fruit = ["banana", "apple", "kiwi",]
 not_fruit = ["spam", "eggs", "sausage", "bacon",]
 
 # Comprehensions can "nest" like for-loops to produce a single resulting list; one transform with multiple for-if
-pairings = [ f"{n} and {f}" for f in fruit if len(f) > 4 for n in not_fruit if n != "spam" ]
-print(pairings)  # Pairings lists all combinations of fruits more than 4 letters long and not-fruits except spam
-
-### combinations_for
-fruit = ["banana", "apple", "kiwi",]
-not_fruit = ["spam", "eggs", "sausage", "bacon",]
-
 # Other than expression up-front, order is exactly like nested for-if
-pairs = []
-for f in fruit:
-    if len(f) > 4:
-        for n in not_fruit:
-            if n != "spam":
-                pairs.append(f"{n} and {f}")
-print(pairs)
+pairings = [ f"{n} and {f}" for f in fruit if len(f) > 4 for n in not_fruit if n != "spam" ]
+print(pairings)
 
 ### Other types ###
 ### set_comp
 menu = ["spam", "spam", "eggs", "spam", "sausage", "spam", "bacon", "spam",]
-print(menu)
 item_set = { i for i in menu }  # Just use curlies
 print(item_set)  # Only one of each, order is _not_ preserved
 
@@ -140,14 +144,16 @@ lines = [
     "- Leo Moser",
 ]
 
-numbered_lines = [ f"{n}  {l}" for (n, l) in enumerate(lines) ]  # Brackets here, parens below, that's the _only_ change
+# Brackets here, parens below, that's the _only_ change
+numbered_lines = [ f"{n}  {l}" for (n, l) in enumerate(lines) ]
 
 for l in numbered_lines:
     print(l)
 
 del numbered_lines, l
 
-numbered_lines = ( f"{n}  {l}" for (n, l) in enumerate(lines) )  # Produces each line as-needed, no second copy of all the lines!
+numbered_lines = ( f"{n}  {l}" for (n, l) in enumerate(lines) )
+# Produces each line as-needed, no second copy of all the lines!
 
 for l in numbered_lines:
     print(l)
@@ -165,14 +171,16 @@ with open("Klein.txt", "r") as klein:
 
     def trimmed_lines():
         for l in klein:
-          yield l.strip()  # 'yield' is like "return with a bookmark", each 'next' resumes running here
+            # 'yield' is like "return with a bookmark", each 'next' resumes running here
+            yield l.strip()
 
     def content():
         for l in trimmed_lines():
           if l:
             yield l
 
-    print("\n".join(content())) # 'join' iterates over 'content' which iterates over 'trimmed_lines' which iterates over the open file
+    # 'join' iterates over 'content' which iterates over 'trimmed_lines' which iterates over the open file
+    print("\n".join(content()))
 
 ### word_search_lc
 import re, sys

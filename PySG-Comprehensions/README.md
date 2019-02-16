@@ -5,7 +5,8 @@ PySG Comprehensions
 
 
 ### What are they?
-- Compact notation for creating a new list (and other collections we'll get to) from another <s>list</s> iterable - [Documentation](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)
+- Compact notation for creating a new list (and other collections we'll get to) from another <s>list</s> iterable
+    - [Documentation](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)
 - Four parts (one optional): `new_list = [ expression for-in-iterable (if-check) ]`
     - A new resulting list
     - An expression that can transform each item in the context of the loop and conditional
@@ -30,10 +31,10 @@ PySG Comprehensions
 
 ### Nesting
 - Nested for matrix / list-of-
-  - Comprehensions are expressions, fairly straightforward
+    - Comprehensions are expressions, fairly straightforward
 - Doubled is weirder
-  - Remember order is just like writing nested loops, still just one expression
-  - Used for flattening or combinations
+    - Remember order is just like writing nested loops, still just one expression
+    - Used for flattening or combinations
 - Can be a short road to spaghetti-town, consider encapsulating inner or using for-loop for outer
 
 > See `matrix_lc`, `combinations_lc`, and `combinations_for` examples
@@ -48,20 +49,20 @@ PySG Comprehensions
 
 ### Generator expressions
 - Basic generator - just use parens: `( i for i in items )`
-  - Generator produces each line as-needed
+    - Generator produces each line as-needed
 - Search Shakespeare
-  - Generators working incrementally save memory even if they have to do just as much work!
+    - Generators working incrementally save memory even if they have to do just as much work!
 
 > See `basic_genex`, `basic_gen_equiv`, `word_search_lc`, and `word_search_gen` examples
 
 
 ### Good code
 - Don't use comprehensions when a for-loop is better
-  - when you need iteration but not the resulting list
-  - when you want to short-circuit (arguably my word search example would be better with a for-loop instead of islice)
-  - Consider combining for and comprehension instead of nesting
-  - When logic is long or complex, _**BUT...**_
+    - when you need iteration but not the resulting list
+    - when you want to short-circuit (arguably my word search example would be better with a for-loop instead of islice)
+    - Consider combining for and comprehension instead of nesting
+    - When logic is long or complex, _**BUT...**_
 - On the other hand they can encourage _good_ code
-  - encapsulate transform and/or condition to make code clearer and simple enough to make a nice comprehension
+    - encapsulate transform and/or condition to make code clearer and simple enough to make a nice comprehension
 
 ---
