@@ -184,19 +184,19 @@ with open("Klein.txt", "r") as klein:
 
 ### word_search_lc
 import re, sys
-with open(sys.argv[1], "r") as search_file:
+(file, word, limit) = (sys.argv[1], sys.argv[2], int(sys.argv[3]))
+with open(file, "r") as search_file:
     numbered_lines = [ f"{num:6d}: {line}" for (num, line) in enumerate(search_file) ]  # Produces a list numbering _every_ line of the file, even if we never need them
-    matches = [ l for l in numbered_lines if re.search(sys.argv[2], l, re.IGNORECASE) ]  # Produces a list of every match, even if we don't need them all
-    match_n = int(sys.argv[3])
-    print("".join(matches[:match_n]))
+    matches = [ l for l in numbered_lines if re.search(word, l, re.IGNORECASE) ]  # Produces a list of every match, even if we don't need them all
+    print("".join(matches[:limit]))
 
 ### word_search_gen
 from itertools import islice  # Generators are not lists, sometimes need other changes to acommodate
 import re, sys
-with open(sys.argv[1], "r") as search_file:
+(file, word, limit) = (sys.argv[1], sys.argv[2], int(sys.argv[3]))
+with open(file, "r") as search_file:
     numbered_lines = ( f"{num:6d}: {line}" for (num, line) in enumerate(search_file) )  # Produces numbered lines as-needed
-    matches = ( l for l in numbered_lines if re.search(sys.argv[2], l, re.IGNORECASE) )  # Finds each match when requested
-    match_n = int(sys.argv[3])
-    print("".join(islice(matches, match_n)))  # Generators are not natively sliceable, 'islice' does limited iteration
+    matches = ( l for l in numbered_lines if re.search(word, l, re.IGNORECASE) )  # Finds each match when requested
+    print("".join(islice(matches, limit)))  # Generators are not natively sliceable, 'islice' does limited iteration
 
 #####

@@ -27,6 +27,7 @@ intro:  # # Open the README with the lesson outline
 	@$(EDITOR) README.md
 
 show_klein:  ## Show the lines we'll be working with
+	@open https://en.wikipedia.org/wiki/Klein_bottle
 	cat Klein.txt
 
 show_what:  ## Show the "what are they?" section
@@ -154,15 +155,19 @@ Shakespeare.txt:  # Download complete works of shakespeare
 word_search_lc: $$@.tmp.py  ## Create and open the list comprehension version of word search
 	@$(EDITOR) "$<"
 
+ls_shakespeare: Shakespeare.txt  ## Show the size of the Shakespeare file
+	ls -lh "Shakespeare.txt"
+
 run_word_search_lc: $$(subst run_,,$$@).tmp.py Shakespeare.txt  ## Run the list comprehension version of word search
-	ls -l "Shakespeare.txt"
-	/usr/bin/time -l "./$<" "Shakespeare.txt" "beauty" 10 2>&1 | head -13
+	/usr/bin/time -l "./$<" "Shakespeare.txt" "beauty" 10 2>&1 | sed -ne '1,/maximum resident set size/ p'
 
 word_search_gen: $$@.tmp.py  ## Create and open the generator expression version of word search
 	@$(EDITOR) "$<"
 
 run_word_search_gen: $$(subst run_,,$$@).tmp.py Shakespeare.txt  ## Run the generator expression version of word search
-	/usr/bin/time -l "./$<" "Shakespeare.txt" "beauty" 10  2>&1 | head -13
+	@echo -n /usr/bin/time -l "./$<" "Shakespeare.txt" "beauty" 1000 2\>\&1 \| sed -ne \'1,/maximum resident set size/ p\' \| tail -13 | $(QuietCopy)
+	/usr/bin/time -l "./$<" "Shakespeare.txt" "beauty" 10  2>&1 | sed -ne '1,/maximum resident set size/ p'
+	@echo \(Copied\)
 
 py_hi:  ## Measure Python printing 'hi'
 	/usr/bin/time -l python -c "print('hi')" 2>&1 | head -3
