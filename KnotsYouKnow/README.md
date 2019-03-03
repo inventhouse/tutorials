@@ -5,16 +5,27 @@ Using Knots You Already Know
 ---------------------------
 - “I’m no good at knots”
 - “I wouldn’t know what to do with it”
-- Too much knot-focus, not enough rope-think
-- This talk should teach as _few_ knots as possible, use minimal knot jargon
+- Too much fancy-knot-focus, not enough rope-think
+- The myth of "use the right knot" - Italian proverb "the best is the enemy of the good" was never more true
+    - Does the knot do the job?  Yes?  Good.  Done.
+
+- Also activity-specific knot categories / guides - sailing, fishing, camping, rescue, etc
+    - Knots are useful all the time, not just doing "outdoorsy" things
+    - Might be more interested in outdoor activities if knots were less intimidating
+
+This talk should _not_:
+- Teach knots (as few as possible) - rather, new insights into simple knots you knew before
+- Use knot jargon (only a couple knot names) - stop me if I say "on a bight"
+- Nor link to knot resources - practice, examine, and _use_ the knots you know
+    - Perhaps another lesson (some time from now) to "learn how to learn knots"
 
 
 Magic String
 ------------
-- Boot laces, paracord, whatever
+- Boot laces, paracord, whatever - the rope you have with you beats the rope you don't
 - Brief intro to paracord
-    - ~550lb breaking strength, some stretch, many colors/patterns, super-popular lately, craft/hardware-store quality varies _wildly_
-- Length - 6'-12', I use 3m ~10'
+    - ~550lb breaking strength, some stretch, kernmantle, many colors/patterns, super-popular lately, craft/hardware-store quality varies _wildly_
+- Length - 6'-12', two arm-spans, I use 3m ~10'
 - Cutting and burning
     - Knife vs. scissors
     - Brief plug for EMT shears
@@ -42,17 +53,20 @@ Some Basic Knot Types
     - Fixed-to-running
 - Sliding knot
     - Intro half-hitches
-- Stopper knot
+- Joining knot
+    - Water knot
+- Stopper knot (mention)
 - Systems of knots
     - Cinch
 
 
-Some examples
+Some Examples
+-------------
 - Jacket sling
 - Bag sling - thinking about rope-and-object working together
 - Handle
 - Adjustable length
-- Karada
+- Hishi karada
 
 - Dog leash
 - Water bottle sling
@@ -68,5 +82,6 @@ Use Your Rope
 - Tie and re-tie, try new ways based on your observations
     - What could be better? - hard to tie, hard to untie, slips or loosens, I wish...
     - Eventually learn others, but variations of the overhand will go surprisingly far
+        - Seeing the subtleties will help a _lot_ learning new knots
 
 ---
