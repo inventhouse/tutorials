@@ -1,20 +1,24 @@
 Using Knots You Already Know
 ============================
 
+> This will focus on the overhand, half-hitch, and larks head; the simplest knots used even by people who don't know what they're called.  If you know other knots, keep using them and apply the detailed examination and experimentation I encourage here.
+
+
 “Why don’t you carry rope?”
 ---------------------------
 - “I’m no good at knots”
 - “I wouldn’t know what to do with it”
-- Too much fancy-knot-focus, not enough rope-think
-- The myth of "use the right knot" - Italian proverb "the best is the enemy of the good" was never more true
-    - Does the knot do the job?  Yes?  Good.  Done.
+- **Too much fancy-knot-focus, not enough rope-think**
+- The myth of "use the right knot" - Italian proverb "the best is the enemy of the good"
+    - Does the knot do the job?  Good.  Done.
+    - Non-critical situations only!
 
-- Also activity-specific knot categories / guides - sailing, fishing, camping, rescue, etc
-    - Knots are useful all the time, not just doing "outdoorsy" things
-    - Might be more interested in outdoor activities if knots were less intimidating
+>- Also problematic: activity-specific knot categories / guides - sailing, fishing, camping, rescue, etc
+    - Knots are useful all the time, not just doing "outdoors-y" things
+    - Some might be more interested in outdoor activities if knots were less intimidating
 
-This talk should _not_:
-- Teach knots (as few as possible) - rather, new insights into simple knots you knew before
+### This talk should _not_:
+- Teach knots (as few as possible) - rather, bring new insights into simple knots you knew before
 - Use knot jargon (only a couple knot names) - stop me if I say "on a bight"
 - Nor link to knot resources - practice, examine, and _use_ the knots you know
     - Perhaps another lesson (some time from now) to "learn how to learn knots"
@@ -22,14 +26,17 @@ This talk should _not_:
 
 Magic String
 ------------
-- Boot laces, paracord, whatever - the rope you have with you beats the rope you don't
-- Brief intro to paracord
+- Boot laces
+    - Available everywhere, cut-and-finished
+- Paracord
     - ~550lb breaking strength, some stretch, kernmantle, many colors/patterns, super-popular lately, craft/hardware-store quality varies _wildly_
-- Length - 6'-12', two arm-spans, I use 3m ~10'
+- Whatever
+    - The rope you have with you beats the rope you don't
+- Length - ~two arm-spans, I use 3m ~10'
 - Cutting and burning
     - Knife vs. scissors
     - Brief plug for EMT shears
-- Coiling/folding + knot
+- Fold + knot to keep from tangling
     - Works with cables, too
 
 
@@ -37,10 +44,14 @@ Study Your Knots
 ----------------
 - Don’t be afraid of mistakes (in non-critical situations - which is most of the time)
 - Look closely at your knots
-    - Look at the way the rope lays and pulls - where is the tension?  what if it changes?  tugs?
+    - Look at the way the rope crosses, lays, and pulls - where is the tension?  what if direction changes?  tugs?
     - What keeps this knot together?  
     - What would make it change or fail?
-- *Everyone tie a bow*, look closer, take it apart - right-over-left?  square or granny? notice that it's really two overhand knots (second is done with loops, but still); how many different configurations can you tie?
+- *Everyone tie a bow*, look closer, take it apart:
+    - Right-over-left or left-over-right?
+    - Square or granny?
+    - Notice that it's really two overhand knots (second is done with loops, but still)
+    - How many different configurations can you tie?
 
 
 Some Basic Knot Types
@@ -68,7 +79,7 @@ Some Examples
 - Adjustable length
 - Hishi karada
 
-- Dog leash
+>- Dog leash
 - Water bottle sling
 
 
@@ -81,7 +92,8 @@ Use Your Rope
 - Study _your_ knots - the knots _you_ tie
 - Tie and re-tie, try new ways based on your observations
     - What could be better? - hard to tie, hard to untie, slips or loosens, I wish...
-    - Eventually learn others, but variations of the overhand will go surprisingly far
-        - Seeing the subtleties will help a _lot_ learning new knots
+
+>- Eventually learn others, but variations of the overhand will go surprisingly far
+    - Seeing the subtleties will help a _lot_ learning new knots
 
 ---
