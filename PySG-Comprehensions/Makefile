@@ -68,7 +68,7 @@ show_tricky:  #- Show the "getting tricky" section
 	# @$(ReadAt) "### Getting tricky"
 	@open "https://github.com/inventhouse/tutorials/tree/master/PySG-Comprehensions#getting-tricky"
 
-tuple_for: $$@.tmp.py  ## Create and open equivalent loop over tuples example
+tuple_for: $$@.tmp.py  # Create and open equivalent loop over tuples example
 	@$(EDITOR) "$<"
 
 run_tuple_for: $$(subst run_,,$$@).tmp.py  #- Run the equivalent basic loop over tuples example
@@ -76,26 +76,30 @@ run_tuple_for: $$(subst run_,,$$@).tmp.py  #- Run the equivalent basic loop over
 	"./$<"
 	@$(Spaces)
 
-tuple_lc: $$@.tmp.py  ## Create and open comp over tuples example
+tuple_lc: $$@.tmp.py  # Create and open comp over tuples example
 	@$(EDITOR) "$<"
+
+tuple_unpack: tuple_for tuple_lc  ## Create and open tuple unpacking examples
 
 run_tuple_lc: $$(subst run_,,$$@).tmp.py  ## Run the comp over tuples example
 	@$(Spaces)
 	"./$<"
 	@$(Spaces)
 
-new_tuple_for: $$@.tmp.py  ## Create and open new tuples for-loop example
+new_tuple_for: $$@.tmp.py  # Create and open new tuples for-loop example
 	@$(EDITOR) "$<"
 
-new_tuple_lc: $$@.tmp.py  ## Create and open new tuples comp example
+new_tuple_lc: $$@.tmp.py  # Create and open new tuples comp example
 	@$(EDITOR) "$<"
+
+new_tuples: new_tuple_for new_tuple_lc  ## Create and open new tuples examples
 
 run_new_tuple_lc: $$(subst run_,,$$@).tmp.py  ## Run the new tuples example
 	@$(Spaces)
 	"./$<"
 	@$(Spaces)
 
-two_kinds_of_if_for: $$@.tmp.py  ## Create and open two kinds of if spelled-out example
+two_kinds_of_if_for: $$@.tmp.py  # Create and open two kinds of if spelled-out example
 	@$(EDITOR) "$<"
 
 run_two_kinds_of_if_for: $$(subst run_,,$$@).tmp.py  #- Run the two kinds of if spelled-out example
@@ -103,8 +107,10 @@ run_two_kinds_of_if_for: $$(subst run_,,$$@).tmp.py  #- Run the two kinds of if 
 	"./$<"
 	@$(Spaces)
 
-two_kinds_of_if_lc: $$@.tmp.py  ## Create and open two kinds of if example
+two_kinds_of_if_lc: $$@.tmp.py  # Create and open two kinds of if example
 	@$(EDITOR) "$<"
+
+two_kinds_of_if: two_kinds_of_if_for two_kinds_of_if_lc  ## Create and open two kinds of if examples
 
 run_two_kinds_of_if_lc: $$(subst run_,,$$@).tmp.py  ## Run the two kinds of if example
 	@$(Spaces)
@@ -220,11 +226,13 @@ ls_shakespeare: Shakespeare.txt  ## Show the size of the Shakespeare file
 	ls -lh "Klein.txt" "Shakespeare.txt"
 	@$(Spaces)
 
-word_search_lc: $$@.tmp.py  ## Create and open the list comprehension version of word search
+word_search_lc: $$@.tmp.py  # Create and open the list comprehension version of word search
 	@$(EDITOR) "$<"
 
-word_search_gen: $$@.tmp.py  ## Create and open the generator version of word search
+word_search_gen: $$@.tmp.py  # Create and open the generator version of word search
 	@$(EDITOR) "$<"
+
+word_search: word_search_lc word_search_gen  ## Create and open the word search examples
 
 run_word_search_lc: $$(subst run_,,$$@).tmp.py Shakespeare.txt  ## Run the list comprehension version of word search
 	@$(Spaces)
@@ -249,7 +257,6 @@ echo_hi:  #- Measure echo printing 'hi'
 	@$(Spaces)
 
 show_good:  ## Show the "good code" section
-	# @$(ReadAt) "### Good code"
 	@open "https://github.com/inventhouse/tutorials/tree/master/PySG-Comprehensions#good-code"
 
 # # #
