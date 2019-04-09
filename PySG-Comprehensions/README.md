@@ -5,19 +5,19 @@ PySG Comprehensions
 
 
 ### What are they?
-- Compact notation for creating a new list (and other collections we'll get to) from another <s>list</s> iterable
+- Compact notation for creating a new list (thus "_list_ comprehension", we'll get to other collections) from another <s>list</s> iterable
     - [Documentation](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)
-- Four parts (one optional): `new_list = [ expression for-in-iterable (if-check) ]`
-    - A new resulting list
+- Three parts (one optional):
     - An expression that can transform each item in the context of the loop and conditional
     - A for-loop over an existing iterable
     - An optional filtering `if`, item and transform are skipped if this is false-ish
-- Expression up-front instead of at the end, as it would be in a "normal" for-loop: `for-in-iterable: (if-check:) new_list.append(expression)`
+- Expression up-front instead of at the end, as it would be in a "normal" for-loop
+    - A bit "Yoda", but highlights the most important part of what the new list is made of
 - If-check can be left off; no `else` clause, run `expression` or don't
 - Always creates a new list, always iterates over all the items - _not_ "lazy" (but there _is_ a lazy version we'll get to)
 - Like `map()` and `filter()` combined
 
-> See `basic_lc`, `basic_for`, and `basic_map_filter` examples in code_chunks.py
+> See `basic_for`, `basic_lc`, and `basic_map_filter` examples in code_chunks.py
 
 
 ### Getting tricky
@@ -49,7 +49,7 @@ PySG Comprehensions
 
 ### Generator expressions
 - Basic generator - just use parens: `( i for i in items )`
-    - Generator produces each line as-needed
+    - Generator produces each item as-needed
 - Search Shakespeare
     - Generators working incrementally save memory even if they have to do just as much work!
 
@@ -60,7 +60,7 @@ PySG Comprehensions
 - Don't use comprehensions when a for-loop is better
     - when you need iteration but not the resulting list
     - when you want to short-circuit (arguably my word search example would be better with a for-loop instead of islice)
-    - Consider combining for and comprehension instead of nesting
+    - Consider combining `for` and comprehension instead of nesting
     - When logic is long or complex, _**BUT...**_
 - On the other hand they can encourage _good_ code
     - encapsulate transform and/or condition to make code clearer and simple enough to make a nice comprehension

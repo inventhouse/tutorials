@@ -4,27 +4,28 @@
 #!/usr/bin/env python3
 # Copyright (c) 2019 Benjamin Holt -- MIT License
 
-### basic_lc
-with open("Klein.txt", "r") as klein:
-
-    # List-like brackets, with transform, iteration, and filtering to produce a new result
-    trimmed_lines = [ l.strip() for l in klein ]
-    content = [ l for l in trimmed_lines if l ]
-
-    print("\n".join(content))
-
 ### basic_for
 with open("Klein.txt", "r") as klein:
 
     # "Spelled-out" is less dense, but more flexible (can use 'continue', 'break', 'else', etc)
     trimmed_lines = []
-    for l in klein:
-        trimmed_lines.append(l.strip())
+    for line in klein:
+        trimmed_lines.append( line.strip() )
 
     content = []
-    for l in trimmed_lines:
-        if l:
-            content.append(l)
+    for line in trimmed_lines:
+        if line:
+            content.append( line )
+
+    print("\n".join(content))
+
+### basic_lc
+with open("Klein.txt", "r") as klein:
+
+    # List-like brackets, with transform, iteration, and filtering to produce a new result
+    trimmed_lines = [ line.strip() for line in klein ]
+
+    content = [ line for line in trimmed_lines if line ]
 
     print("\n".join(content))
 
@@ -33,47 +34,121 @@ with open("Klein.txt", "r") as klein:
 
     # Yet another version, here the "expression" part is also near the begininning
     # 'map' runs a callable on each item in an iterable, similar to a comprehension, but have to wrap the expression in 'lambda'
-    trimmed_lines = list(map(lambda l: l.strip(), klein))
+    trimmed_lines = list(map(lambda line: line.strip(), klein))
     # 'filter' runs a callable to include-or-not each item, but doesn't transform them
-    content = list(filter(lambda l: l, trimmed_lines))
+    content = list(filter(lambda line: line, trimmed_lines))
 
     print("\n".join(content))
 
 ### Trickier ###
-### tuple_lc
-with open("Klein.txt", "r") as klein:
-
-    # Iteration can unpack tuples and use the parts as usual, here building them into a "format string"
-    numbered_lines = [ f"{num:3d}: {line}" for (num, line) in enumerate(klein) ]  # Parens optional
-
-    print("".join(numbered_lines))
-
 ### tuple_for
 with open("Klein.txt", "r") as klein:
 
     numbered_lines = []
-    for (num, line) in enumerate(klein):  # Parens optional
-        numbered_lines.append(f"{num:3d}: {line}")
+    # for nl in enumerate(klein):
+    #     numbered_lines.append( f"{nl[0]}: {nl[1]}" )  # Ick!
+
+    # Parens optional below
+    for (num, line) in enumerate(klein):
+        numbered_lines.append( f"{num}: {line}" )
 
     print("".join(numbered_lines))
 
-### new_tuple_lc
+### tuple_lc
+with open("Klein.txt", "r") as klein:
+
+    # Iteration can unpack tuples and use the parts as usual, here building them into a "format string"
+    # Parens optional below
+    numbered_lines = [
+        f"{num}: {line}"
+        for (num, line) in enumerate(klein)
+        ]
+
+    print("".join(numbered_lines))
+
+### new_tuple_for
+from pprint import pprint  # Pretty-print
+
 # Can create list-of-tuples, or list-of-lists, or list-of-whatever
 menu = ["spam", "eggs", "sausage", "bacon",]
+
+item_lengths = []
+for i in menu:
+    item_lengths.append( (i, len(i)) )
+
+pprint(item_lengths)
+
+### new_tuple_lc
+from pprint import pprint  # Pretty-print
+
+# Can create list-of-tuples, or list-of-lists, or list-of-whatever
+menu = ["spam", "eggs", "sausage", "bacon",]
+
 item_lengths = [ (i, len(i)) for i in menu ]  # Parens required
 
-print(item_lengths)
+pprint(item_lengths)
 
-### two_kinds_of_if
+### two_kinds_of_if_for
+from pprint import pprint  # Pretty-print
+
+address = [
+    None,
+    "edX",
+    141,
+    "Portland St.",
+    None,
+    "Cambridge",
+    "MA",
+    "02139",
+    ]
+
+address_drop_missing = []
+for v in address:
+    if v:  # Filter
+        address_drop_missing.append( str(v) )
+    # No 'else', just skip
+
+# 'Missing' values dropped
+pprint(address_drop_missing)
+
+address_empty_string = []
+for v in address:
+    address_empty_string.append( str(v) if v else "" )  # 'else' required
+
+# Empty strings for 'missing' values
+pprint(address_empty_string)
+
+### two_kinds_of_if_lc
+from pprint import pprint  # Pretty-print
+
+address = [
+    None,
+    "edX",
+    141,
+    "Portland St.",
+    None,
+    "Cambridge",
+    "MA",
+    "02139",
+    ]
+
+address_drop_missing = [
+    str(v)
+    for v in address
+    if v  # Filter, no 'else' allowed
+    ]
+
+# 'Missing' values dropped
+pprint(address_drop_missing)
+
 # "Conditional expression" is just another kind of expression, another type of transform
-# [name, company, number, street, line_two, city, state, zip]
-address = [None, "edX", 141, "Portland St.", None, "Cambridge", "MA", "02139",]
+address_empty_string = [
+    str(v) if v else "" # Transform, else required
+    for v in address
+    ]
 
-address_values = [ str(v) for v in address if v ]  # Filter, no 'else' allowed
-print(address_values)  # 'Missing' values dropped
-
-address_values = [ str(v) if v else "" for v in address ]  # Transform, 'else' _required_
-print(address_values)  # Empty strings for 'missing' values
+# Empty strings for 'missing' values
+pprint(address_empty_string)
 
 ### slice_assign_viz
 l = [1,2,3]
@@ -94,12 +169,23 @@ for current, dirs, files in os.walk(sys.argv[1]):
 
 ### Nesting ###
 ### matrix_lc
+from pprint import pprint  # Pretty-print
+
 # A comprehension _is_ a transform, working on each item (sub-list)
-matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-squares = [ [ n**2 for n in row ] for row in matrix ]
-print(squares)
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+    ]
+squares = [
+    [ n**2 for n in row ]
+    for row in matrix
+    ]
+pprint(squares)
 
 ### combinations_for
+from pprint import pprint  # Pretty-print
+
 fruit = ["banana", "apple", "kiwi",]
 not_fruit = ["spam", "eggs", "sausage", "bacon",]
 
@@ -108,30 +194,46 @@ for f in fruit:
     if len(f) > 4:
         for n in not_fruit:
             if n != "spam":
-                pairings.append(f"{n} and {f}")
+                pairings.append( f"{f} and {n}" )
 
 # Pairings lists all combinations of fruits more than 4 letters long and not-fruits except spam
-print(pairings)
+pprint(pairings)
 
 ### combinations_lc
+from pprint import pprint  # Pretty-print
+
 fruit = ["banana", "apple", "kiwi",]
 not_fruit = ["spam", "eggs", "sausage", "bacon",]
 
 # Comprehensions can "nest" like for-loops to produce a single resulting list; one transform with multiple for-if
 # Other than expression up-front, order is exactly like nested for-if
-pairings = [ f"{n} and {f}" for f in fruit if len(f) > 4 for n in not_fruit if n != "spam" ]
-print(pairings)
+pairings = [
+    f"{f} and {n}"
+    for f in fruit if len(f) > 4
+    for n in not_fruit if n != "spam"
+    ]
+pprint(pairings)
 
 ### Other types ###
 ### set_comp
-menu = ["spam", "spam", "eggs", "spam", "sausage", "spam", "bacon", "spam",]
-item_set = { i for i in menu }  # Just use curlies
-print(item_set)  # Only one of each, order is _not_ preserved
+from pprint import pprint  # Pretty-print
+
+menu = ["spam", "Spam", "EGGS", "sPaM", "sausage", "spaM", "bacon", "sPam",]
+
+item_set = { i.lower() for i in menu }  # Just use curlies
+
+# Only one of each, order is _not_ preserved
+pprint(item_set)
 
 ### dict_comp
+from pprint import pprint  # Pretty-print
+
 menu = ["spam", "eggs", "sausage", "bacon",]
-item_lengths = { i: len(i) for i in menu }  # Curlies and key: value
-print(item_lengths)
+
+# Curlies and key: value - either/both can be computed
+item_lengths = { i.upper(): len(i) for i in menu }
+
+pprint(item_lengths)
 
 ### Generators ###
 ### genex_viz
@@ -145,15 +247,22 @@ lines = [
 ]
 
 # Brackets here, parens below, that's the _only_ change
-numbered_lines = [ f"{n}  {l}" for (n, l) in enumerate(lines) ]
+numbered_lines = [
+    f"{n}  {l}"
+    for (n, l) in enumerate(lines)
+    ]
 
 for l in numbered_lines:
     print(l)
 
+# Reset back to original lines list
 del numbered_lines, l
 
-numbered_lines = ( f"{n}  {l}" for (n, l) in enumerate(lines) )
 # Produces each line as-needed, no second copy of all the lines!
+numbered_lines = (
+    f"{n}  {l}"
+    for (n, l) in enumerate(lines)
+    )
 
 for l in numbered_lines:
     print(l)
@@ -161,7 +270,8 @@ for l in numbered_lines:
 ### basic_genex
 with open("Klein.txt", "r") as klein:
 
-    trimmed_lines = ( l.strip() for l in klein )  # Parens instead of brackets
+    # Parens instead of brackets
+    trimmed_lines = ( l.strip() for l in klein )
     content = ( l for l in trimmed_lines if l )
 
     print("\n".join(content))
@@ -186,8 +296,18 @@ with open("Klein.txt", "r") as klein:
 import re, sys
 (file, word, limit) = (sys.argv[1], sys.argv[2], int(sys.argv[3]))
 with open(file, "r") as search_file:
-    numbered_lines = [ f"{num:6d}: {line}" for (num, line) in enumerate(search_file) ]  # Produces a list numbering _every_ line of the file, even if we never need them
-    matches = [ l for l in numbered_lines if re.search(word, l, re.IGNORECASE) ]  # Produces a list of every match, even if we don't need them all
+    # Produces a list numbering _every_ line of the file, even if we never need them
+    numbered_lines = [
+        f"{num:6d}: {line}"
+        for (num, line) in enumerate(search_file)
+        ]
+
+    # Produces a list of every match, even if we don't need them all
+    matches = [
+        l for l in numbered_lines
+        if re.search(word, l, re.IGNORECASE)
+        ]
+
     print("".join(matches[:limit]))
 
 ### word_search_gen
@@ -195,8 +315,19 @@ from itertools import islice  # Generators are not lists, sometimes need other c
 import re, sys
 (file, word, limit) = (sys.argv[1], sys.argv[2], int(sys.argv[3]))
 with open(file, "r") as search_file:
-    numbered_lines = ( f"{num:6d}: {line}" for (num, line) in enumerate(search_file) )  # Produces numbered lines as-needed
-    matches = ( l for l in numbered_lines if re.search(word, l, re.IGNORECASE) )  # Finds each match when requested
-    print("".join(islice(matches, limit)))  # Generators are not natively sliceable, 'islice' does limited iteration
+    # Produces numbered lines as-needed
+    numbered_lines = (
+        f"{num:6d}: {line}"
+        for (num, line) in enumerate(search_file)
+        )
+
+    # Finds each match when requested
+    matches = (
+        l for l in numbered_lines
+        if re.search(word, l, re.IGNORECASE)
+        )
+
+    # Generators are not natively sliceable, 'islice' does limited iteration
+    print("".join(islice(matches, limit)))
 
 #####
