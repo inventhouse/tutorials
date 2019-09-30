@@ -1,0 +1,12 @@
+#!/bin/bash
+
+cp ~/bjh/inventhub/tutorials/GitWorkflow-Lightning/README.md ~/bjh/inventhub/tutorials/GitWorkflow-Lightning/Makefile .
+
+rm -rf frontend-app-gradebook frontend-app-payment
+
+cp -R ~/edx-demo-mods/frontend-app-gradebook ~/edx-demo-mods/frontend-app-payment .
+
+# rm -rf course-discovery credentials cs_comments_service devstack ecommerce edx-analytics-pipeline edx-e2e-tests edx-notes-api edx-platform frontend-app-gradebook frontend-app-payment frontend-app-program-manager registrar xqueue
+
+# cp -R ~/edx-demo-mods/* .
+###
