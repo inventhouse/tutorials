@@ -29,6 +29,7 @@ To have git just pull changes even if there are local commits or modifications (
 - ss = 'status -s'
 
 #### Gitalias
+```
 usage: gitalias              Prints existing git aliases
        gitalias -s|--script  Prints git aliases as a script for reproducing
                              them in a new environment
@@ -39,6 +40,7 @@ Create a new alias with:
 
 Remove an alias with:
   git config --global --unset alias.THING
+```
 
 ### Many Repos
 - One repo per project - but poor support for multiple repos
