@@ -51,7 +51,7 @@ Allgit:  ## A few points about allgit
 Allgit-ss:  ## Short status of modified repos
 	allgit -m - ss
 
-Allgit-diff:  ## Diff of modified repos
+Allgit-diff:  # # Diff of modified repos
 	allgit -m - diff
 
 ##  BranchFlow  ##
@@ -78,7 +78,7 @@ Allgit-nb:  ## Actually create some branches
 Listb:  ## List our new branches
 	@echo "allgit - lb"
 	@echo "..."
-	@allgit -m - lb
+	@allgit -m -i frontend-app-program-manager - lb
 
 Commit:  ## Commit the changes
 	allgit -b ahtm - cam "Add help to Makefiles"

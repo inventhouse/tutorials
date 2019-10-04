@@ -89,6 +89,7 @@ Remove an alias with:
 
 ### Final thoughts
 - All these things can be used independently
+- Ask about these and other tools - I watch `allgit` on Slack
 - Customize your workflow to *you*
 
 ### Links
