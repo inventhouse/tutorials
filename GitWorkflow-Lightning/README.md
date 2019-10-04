@@ -6,7 +6,7 @@ _(This presentation is built with MakeDemo, but because it requires other repos,
 - Many workflows, many tools, just a taste of a few of mine
 - Customizing git with aliases
 - Working on many repos with allgit
-- Wrangling branches with BranchFlow
+- Streamline branches with BranchFlow
 
 #### Make git work better
 To have git just pull changes even if there are local commits or modifications (which is how I *want* `pull` to work) I'd have to type `git pull -r --autostash`; aliases let me shorten that to `git pra`
@@ -14,7 +14,7 @@ To have git just pull changes even if there are local commits or modifications (
 ### Aliases
 - Customize git:
     - Shorten common commands
-    - Combine options
+    - Create your own commands
     - Make it work (more) the way *you* want
 - A bit arcane though, support is lacking
 - `gitalias` for listing, reproducing, and help
@@ -54,8 +54,8 @@ Remove an alias with:
 - Makes working with many repos easy
 - No configuration to add repos
 - Run any git command, including aliases
-- Easily filter repos with `-m`, `-b`, or just specifying them
 - Platform for other scripts
+- Easily filter repos with `-m`, `-b`, or just specifying them
 - ...and much more
 
 #### Common allgit commands
@@ -71,11 +71,11 @@ Remove an alias with:
     - Arcane to set up
 
 ### BranchFlow
-- `newb`, `getb`, `setupb`
+- `newb`, `getb`, `setupb` (`nb`, `gb`, `sb`)
     - Long remote branch, automatic short local branch
-- `listb`
+- `listb` (`lb`)
     - List current and "working" branches
-- `dropb`, `killb`
+- `dropb`, `killb` (`db`, `kb`)
     - Clean up branches
 - Bring it all together with aliases and `allgit`
 
