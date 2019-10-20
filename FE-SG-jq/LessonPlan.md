@@ -60,6 +60,7 @@ The demo commands, along with brief notes, are organized in the Makefile; `make 
   - Filters run per-input-item unless you -s slurp
   - .[] can unwrap objects
 - Common errors:
+  - key(s) not quoted: "parse error: Invalid numeric literal at line 2, column 7"
   - Forgot the dot: "jq: error: name/0 is not defined at <top-level>, line 1:"
   - Need to unwrap array: "jq: error (at <stdin>:1): Cannot index array with string "name""
   - Errors often implicate unix quoting, but rarely is that the issue

@@ -52,6 +52,8 @@ _(( write this ))_
 
 ### Worked Example:
 
+_(( Maybe tool to parse the file-and-line out of a log line and open that that locally or in github?  maybe tricky to map to project name/path/url though ))_
+
 _(( write this ))_
 
 ```
