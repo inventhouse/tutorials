@@ -1,5 +1,15 @@
 Xonsh 101
 =========
+"If you know Python and you use Bash ever, you already know why you want more Python in your shell." - [Xonsh quickstart]
+
+Shell
+-----
+- Run commands - direct invocation, "builtins", and transparent fallback "path"
+    - arguments, flags, subcommands, and other "command line interface"
+- Pipelines
+- Scripting
+
+
 
 
 Links
@@ -20,5 +30,14 @@ Links
     - Lots more documentation here, keep diging as you get more familiar or you find you have specific needs
 - [Source code](https://github.com/xonsh/xonsh)
     - The great thing about a shell written in the language it's based on is that you can read the code to understand how it really works - and contribute back!
+
+Other interesting shells
+------------------------
+- [Daudin](https://github.com/terrycojones/daudin)
+    - Another Python shell, _very_ interesting pipelining system
+- [Nushell](http://www.jonathanturner.org/2019/08/introducing-nushell.html)
+    - _Fascinating_ "structured data"-based shell, apparently at least in part inspired by...
+- [Powershell](https://en.wikipedia.org/wiki/PowerShell)
+    - I think I should learn more about this
 
 ---
