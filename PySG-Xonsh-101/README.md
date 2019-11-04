@@ -86,18 +86,38 @@ Imagine an environment with...
 - Mostly "just works" - type shell commands and pipelines or python at any prompt anytime
 - Best of both worlds: great shell features, and _WAY_ better than the standard python interpreter
 - Configuration takes some learning and experimentation
-- Interaction between shell and python _definitely_ takes some learning and experimentation
+- Interaction between shell and python _definitely_ takes some learning and experimentation, just starting to get my "sea-legs"
+- Barely scratched the surface, ask me again in a year
+
+### Brief tour
+- Per-line "duck typing" - if it parses like Python... (otherwise treat it as shell)
+- Various extra syntax to force or mix modes:
+    - `@()` for python, `$()`, `!()`, `$[]`, `![]` for shell
+- `$VAR` for global environment variables, accessible from either shell or python
+    - Python types get `str`-ified in subprocess mode
+    - Special rules to split / join `$PATH`-like vars
+- `aliases` is a dict(ish) and can map to strings, lists, or callables
+    - powerful, but a bit tricky
+- "glob expressions", using backticks, are super-cool; "p-strings" (and p-globs) produce [`Path`](https://docs.python.org/3/library/pathlib.html#basic-use) objects
+- My [.xonshrc](https://github.com/inventhouse/BenBin/blob/master/xonshrc)
+- My [xonsh_aliases.xsh](https://github.com/inventhouse/BenBin/blob/master/xonsh_aliases.xsh)
 
 ### Examples
 
 ### Gotchas
-- Backticks different than sh/bash, use `$()`
+- Backticks are different than sh/bash, use `$()`
+- Backslashes don't work for character escaping in shell, use quotes
 - Must use `env` for setting "temporary" env vars
-- Tricky to use pipes in aliases
+- To use pipes in aliases wrap in callable
 - _Not_ recommended as `$SHELL` - set in terminal apps instead
-- Anaconda and some other "activate"-type things expect `sh`-like shells
-- Still new; some rough spots, documentation is thin in places - contribute!
+- Anaconda, standard virtualenv tools, and similar "source"-based things expect specific mainstream shells; use `vox` / `autovox`, for example
+- Still kinda new; some rough spots, documentation is thin in places - contribute!
 
+### Join me!
+- Radically different and, I think, _MUCH_ better
+- Build deeper familiarity with Python instead of piles of commands that aren't very good for other larger things
+- Environment is written in Python, fix, change, document, and contribute to it
+- Grow your ideas from hacks into proper tools
 
 Links
 -----
@@ -117,7 +137,8 @@ Links
     - Lots more documentation here, keep diging as you get more familiar or you find you have specific needs
 - [Source code](https://github.com/xonsh/xonsh)
     - The great thing about a shell written in the language it's based on is that you can read the code to understand how it really works - and contribute back!
-- [Virtualenv discussion](https://github.com/xonsh/xonsh/issues/2663)
+- [Virtual Environments](https://xon.sh/python_virtual_environments.html)
+    - [Virtualenv discussion](https://github.com/xonsh/xonsh/issues/2663)
 
 Other interesting shells
 ------------------------
