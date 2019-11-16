@@ -11,6 +11,7 @@ Introduction
 - Pipelines - link small commands together to do remarkable things
 - Customization - helpful prompt, aliases, configurable path
 - Scripting
+    - Wellll... that part really isn't great...
 
 ### Shell is terrible
 - Everything is strings
@@ -82,13 +83,6 @@ Imagine an environment with...
 - With ways to work with both and move data between the two
 - Plus loads of modern terminal bells & whistles, customizability, etc.
 
-### What's it like?
-- Mostly "just works" - type shell commands and pipelines or python at any prompt anytime
-- Best of both worlds: great shell features, and _WAY_ better than the standard python interpreter
-- Configuration takes some learning and experimentation
-- Interaction between shell and python _definitely_ takes some learning and experimentation, just starting to get my "sea-legs"
-- Barely scratched the surface, ask me again in a year
-
 ### Brief tour
 - Per-line "duck typing" - if it parses like Python... (otherwise treat it as shell)
 - Various extra syntax to force or mix modes:
@@ -102,21 +96,36 @@ Imagine an environment with...
 - My [.xonshrc](https://github.com/inventhouse/BenBin/blob/master/xonshrc)
 - My [xonsh_aliases.xsh](https://github.com/inventhouse/BenBin/blob/master/xonsh_aliases.xsh)
 
+### What's it like?
+- Mostly "just works" - type shell commands and pipelines or python at any prompt anytime
+- Best of both worlds: great shell features, and _WAY_ better than the standard python interpreter
+- Dual-mode works decently well, like "house with attached garage/basement" (which-is-which is up to you)
+- Configuration takes some learning and experimentation
+- Interaction between shell and python _definitely_ takes some learning and experimentation, just starting to get my "sea-legs"
+- Barely scratched the surface, ask me again in a year
+
 ### Examples
+- `ls **/*.py`
+- `ls ``[qrs].*/.*\.py`` `
+- `p"statemachine/statemachine.py".exists()`
+- `re.match?`
+- `grep?`
+
+_(( something multi-line ))_
 
 ### Gotchas
+- _Not_ recommended as `$SHELL` - set in terminal apps instead
 - Backticks are different than sh/bash, use `$()`
 - Backslashes don't work for character escaping in shell, use quotes
 - Must use `env` for setting "temporary" env vars
-- To use pipes in aliases wrap in callable
-- _Not_ recommended as `$SHELL` - set in terminal apps instead
 - Anaconda, standard virtualenv tools, and similar "source"-based things expect specific mainstream shells; use `vox` / `autovox`, for example
 - Still kinda new; some rough spots, documentation is thin in places - contribute!
+- To use pipes in aliases wrap in callable
 
 ### Join me!
 - Radically different and, I think, _MUCH_ better
 - Build deeper familiarity with Python instead of piles of commands that aren't very good for other larger things
-- Environment is written in Python, fix, change, document, and contribute to it
+- Environment is written in Python, fix, change, document, and contribute to it!
 - Grow your ideas from hacks into proper tools
 
 Links
