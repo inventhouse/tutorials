@@ -15,12 +15,14 @@ Introduction
 
 ### Shell is terrible
 - Everything is strings
-- Often parsed badly; problems _everywhere_
+- Often parsed badly; problems lurk _everywhere_
     - `"Quotes" won't save you! 🤦‍♂️` is a valid filename
-        - "But that's an edge-case" - our jobs would be __*SO*__ easy if we didn't have to deal with edge-cases!
+        - "But that's an edge-case"
+        - Spaces in filenames _really_ aren't edge cases, nor are apostropes
         - Weird filenames exist, like `/bin/[` - see if you can spot that later in this section
-- Lots of commands are arcane (and archaic)
-- Syntax is insane; I wrote this, don't be like me:
+        - Our jobs would be __*SO*__ easy if we didn't have to deal with edge-cases!- Lots of commands are arcane (and archaic)
+    - What are the differences between sed, grep, and egrep regular expressions, hmm?
+- Syntax is a mess; I wrote this, don't be like me:
 ```bash
 : ${GetChunkDelim:="###"}
 if [ "$1" == "-h" -o "$1" == "--help" -o -z "$1" -o -z "$2" ]; then
@@ -36,7 +38,11 @@ cat "$1" | sed -e"1,/^${GetChunkDelim}[ 	][ 	]*$2/ d" -e"/^${GetChunkDelim}/,$ d
 - Real data structures
 - Real control structures
 - Lots of powerful libraries
-...but not good at shell things (from the `subprocess` docs):
+
+...but not good at shell things
+
+From the `subprocess` docs:
+
 ```python
 # $ dmesg | grep hda
 p1 = Popen(["dmesg"], stdout=PIPE)
@@ -51,31 +57,7 @@ Imagine an environment with...
 - Pipes, redirection, job control
 - Full Python interpreter
 - Fancy prompts, completions, extensions
-- True multi-line editing
-
-### Unicorn
-```
-`\
-  \\,
-   \\\,^,.,,.
-   ,;7~((\))`;;,,
-   ,(@') ;)`))\;;',
-    )  . ),((  ))\;,
-   /;`,,/7),)) )) )\,,      ,,,... ,
-  (& )`   (,((,((;( ))\,_,,;'`    `\\,
-   `"    ` ), ))),/( (            `)\,
-          '1/';/;  `               ))),
-           (, (     /         )    ((/,
-          / \                /     ((('
-         ( 6--\%  ,>     ,,,(     /'))\'
-          \,\,/ ,/`----~`\   \    >,))))'
-            \/ /          `--7>' /((((('
-            (,9             // /'('((\\\,
-             \ \,,         (/,/   '\`\\'\
-              `\_)1        (_)Kk    `\`\\`\
-                `\|         \Z          `\
-                  `          "            `
-```
+- Multi-line editing
 
 ### Xonsh
 - Pronounced like 'K'; spelled with an 'X' 'cos Xes are cool
@@ -87,14 +69,13 @@ Imagine an environment with...
 - Per-line "duck typing" - if it parses like Python... (otherwise treat it as shell)
 - Various extra syntax to force or mix modes:
     - `@()` for python, `$()`, `!()`, `$[]`, `![]` for shell
+    - Ugly by Python standards, but not so bad for shell
 - `$VAR` for global environment variables, accessible from either shell or python
     - Python types get `str`-ified in subprocess mode
     - Special rules to split / join `$PATH`-like vars
 - `aliases` is a dict(ish) and can map to strings, lists, or callables
     - powerful, but a bit tricky
 - "glob expressions", using backticks, are super-cool; "p-strings" (and p-globs) produce [`Path`](https://docs.python.org/3/library/pathlib.html#basic-use) objects
-- My [.xonshrc](https://github.com/inventhouse/BenBin/blob/master/xonshrc)
-- My [xonsh_aliases.xsh](https://github.com/inventhouse/BenBin/blob/master/xonsh_aliases.xsh)
 
 ### What's it like?
 - Mostly "just works" - type shell commands and pipelines or python at any prompt anytime
@@ -105,13 +86,19 @@ Imagine an environment with...
 - Barely scratched the surface, ask me again in a year
 
 ### Examples
-- `ls **/*.py`
-- `ls ``[qrs].*/.*\.py`` `
-- `p"statemachine/statemachine.py".exists()`
-- `re.match?`
-- `grep?`
-
-_(( something multi-line ))_
+- Modern globs: `ls **/*.py`
+- RE globs: `ls ``[qrs].*/.*\.py`` `
+- Path strings: `p"statemachine/statemachine.py".exists()`
+- Help: `re.match?`
+- Man: `grep?`
+- Multiline editing:
+```
+if p"./.git".exists():
+    url = $(git remote get-url origin).strip()
+    git remote set-url origin @(url.replace("https://github.com/", "git@github.com:"))
+```
+- My [.xonshrc](https://github.com/inventhouse/BenBin/blob/master/xonshrc)
+- My [xonsh_aliases.xsh](https://github.com/inventhouse/BenBin/blob/master/xonsh_aliases.xsh)
 
 ### Gotchas
 - _Not_ recommended as `$SHELL` - set in terminal apps instead
@@ -125,6 +112,7 @@ _(( something multi-line ))_
 ### Join me!
 - Radically different and, I think, _MUCH_ better
 - Build deeper familiarity with Python instead of piles of commands that aren't very good for other larger things
+- Easy to try, just install and run; like I said, "just works"
 - Environment is written in Python, fix, change, document, and contribute to it!
 - Grow your ideas from hacks into proper tools
 
