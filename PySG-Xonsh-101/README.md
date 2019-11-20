@@ -20,7 +20,8 @@ Introduction
         - "But that's an edge-case"
         - Spaces in filenames _really_ aren't edge cases, nor are apostropes
         - Weird filenames exist, like `/bin/[` - see if you can spot that later in this section
-        - Our jobs would be __*SO*__ easy if we didn't have to deal with edge-cases!- Lots of commands are arcane (and archaic)
+        - Our jobs would be __*SO*__ easy if we didn't have to deal with edge-cases!
+- Lots of commands are arcane (and archaic)
     - What are the differences between sed, grep, and egrep regular expressions, hmm?
 - Syntax is a mess; I wrote this, don't be like me:
 ```bash
@@ -144,6 +145,6 @@ Other interesting shells
 - [Nushell](http://www.jonathanturner.org/2019/08/introducing-nushell.html)
     - _Fascinating_ "structured data"-based shell, apparently at least in part inspired by...
 - [Powershell](https://en.wikipedia.org/wiki/PowerShell)
-    - I think I should learn more about this
+    - I keep hearing about this, I think I should learn more sometime
 
 ---
