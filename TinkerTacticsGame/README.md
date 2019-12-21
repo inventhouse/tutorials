@@ -1,6 +1,6 @@
 Tinker Tactics
 ==============
-_Tinker Tactics_ is a free, abstract microgame for 2 or 4 players and takes around 5-10 minutes to play.
+> _Tinker Tactics_ is a free, abstract microgame for 2-6 players and takes around 5-10 minutes to play.
 
 The official pages are:
 - http://tinkerbotgames.com/portfolio/tinkertactics/ (dead link)
@@ -8,14 +8,14 @@ The official pages are:
 
 [Here is a lovely playthough video](https://youtu.be/KDMDGH_u7_c)
 
-The following are a substantially rewritten, hopefully clarified and generalized, version of the rules.
+The following are my (hopefully) clarified and generalized version of the rules.
 
 
 Equipment
 ---------
 Each player needs:
-- A 3x4-square mini-board that can be joined with other boards on a long and short side.
-- 2d4, 2d6, and 1d8 which must form a clear set, distict from all other players.
+- A 3×4-square mini-board that can be joined with other boards on a long and short side.
+- 2d4, 2d6, and 1d8 which must form a clear set, distinct from all other players.
     - Commonly, dice sets may only include one d4 and one d6; we can duplicate them with other dice as follows: roll the d4, d6, and d8, then "copy" the d4 and d6 scores to, say, the units and tens d10s (or other dice) respectively, and re-roll the actual dice.  Note: it is important to know the upper limit of each stand-in when adjusting dice below.
 
 
@@ -25,8 +25,8 @@ Setup
 - Each player announces their total score and all players (except highest scorer) adjust their own dice as they see fit to match the high score.
 - Still in secret, players arrange their dice as they wish on their board.
 - Players reveal and connect their boards to each other; players should know or agree in advance which edges will be joined.
-    - Two boards are joined on a long edge to make a 4x6 rectangualar board.
-    - Three or more boards connect so the short edge of each joins the "outer" three square of the long edge of the next forming a ring.  In a 4-player game this creates a neat, square, 7x7 board with one "missing" square in the middle; in all cases this center space is off-limits.  If the boards cannot all physically mate in this way, play ignores the "wedges" and works just as if adjoining boards really were connected.
+    - Two boards are joined on a long edge to make a 4×6 rectangular board.
+    - Three or more boards connect so the short edge of each joins the "outer" three squares of the long edge of the next forming a ring.  In a 4-player game this creates a neat, square, 7×7 board with one "missing" square in the middle; in all cases this center space is off-limits.  If the boards cannot all physically mate in this way, play ignores the "wedges" and works just as if adjoining boards really were connected.
 
 
 Play
