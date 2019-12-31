@@ -91,7 +91,7 @@ Imagine an environment with...
 - RE globs: `ls ``[qrs].*/.*\.py`` `
 - Path strings: `p"statemachine/statemachine.py".exists()`
 - Help: `re.match?`
-- Man: `grep?`
+- Man: `pbpaste?`
 - Multiline editing:
 ```
 if p"./.git".exists():
@@ -107,6 +107,7 @@ if p"./.git".exists():
 - Backslashes don't work for character escaping in shell, use quotes
 - Must use `env` for setting "temporary" env vars
 - Anaconda, standard virtualenv tools, and similar "source"-based things expect specific mainstream shells; use `vox` / `autovox`, for example
+- Regex globs [break some patterns](https://github.com/xonsh/xonsh/issues/3381)
 - Still kinda new; some rough spots, documentation is thin in places - contribute!
 - To use pipes in aliases wrap in callable
 
