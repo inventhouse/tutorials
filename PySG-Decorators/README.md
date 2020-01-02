@@ -11,51 +11,55 @@ Nope, just some syntactic sugar, not really magic.
 
 They are _**VERY**_ abstract, though...
 
-Notes
------
-- "callables lightning talk" refresher
+Outline
+-------
+- Callables "lightning talk" refresher
     - what are "callables"?  why make up words?
-    - "snippets of code"
-        - functions, lambdas
-        - callables-calling-callables
-    - "code + data"
-        - objects, callable objects
-    - "code _as_ data"
+        - "A callable is anything that can be called" -- [top StackOverflow answer][1]; true, but not very helpful
+        - Why "callable"?  Too many distinct kinds; the term "function" has baggage
+    - "Snippets of code"
+        - Functions, lambdas
+        - Easy to take for granted, but very powerful:
+            - Can take parameters, return results
+            - Callables can call other callables
+    - "Code + data"
+        - `__init__`, callable objects, bound methods
+    - "Code _as_ data"
         - callbacks, helpers
         - closures
 
-- retry with manual syntax
-    - simple retry function, hardcoded 3 times
-    - retry wrapper, returns new callable
-    - we accedentally a decorator
+[1]: https://stackoverflow.com/questions/111234/what-is-a-callable-in-python#111255
 
-- retry decorator
-    - simple decorator, still hardcoded count
+
+- `retry` with manual syntax
+    - Simple `retry` function, hardcoded 3 times
+    - `retry` wrapper, returns new callable
+    - We accedentally a decorator
+
+- `retry` decorator
+    - Simple decorator, still hardcoded count
         - compare syntax, point to the sugar
-    - decorator with count argument
-        - wait, if it gets passed the original automatically, where do the args go??
-        - callable returning a _decorator_
-        - compare syntax, point to the sugar
+    - Decorator with count argument
+        - Wait, if it gets passed the original automatically, where do the args go??
+        - Callable returning a _decorator_
+        - Compare syntax, point to the sugar
 
-- "nesting"
-    - wrap(X) decorator
-    - show manual syntax
-    - wrap vs. retry
+- "Nesting"
+    - Wrap(X) decorator
+    - Show manual syntax
+    - Wrap vs. retry
 
-- other uses of decorators
-    - "registering" callables
-        - often returns original
-    - implementation swap
-        - avoid re-checking invariant condition
+- Uses of decorators
+    - Change the behavior of a callable (e.g. retry, lru_cache, ddt)
+    - Change the behavior of _something else_ "during" a callable
 
-- what's up with this syntax??
-
-
-- uses of decorators
-    - change the behavior of a callable (e.g. retry, lru_cache)
-    - change the behavior of _something else_ "during" a callable
-    - register a callable for something
-    - implementation swap
+- Other uses of decorators
+    - "Registering" callables
+        - Often returns original
+    - Implementation swap
+        - Avoid re-checking invariant condition
     - Frankenstein's monster (e.g. click)
+
+- What's up with this syntax??
 
 ---
