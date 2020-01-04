@@ -45,9 +45,12 @@ Outline
         - Compare syntax, point to the sugar
 
 - "Nesting"
-    - Wrap(X) decorator
+    - Bold vs. italics decorators
     - Show manual syntax
-    - Wrap vs. retry
+
+- Professional touches
+    - use `*args` and `**kwargs`
+    - use `functools.wraps(f)`
 
 - Uses of decorators
     - Change the behavior of a callable (e.g. retry, lru_cache, ddt)
