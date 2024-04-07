@@ -54,6 +54,6 @@ tabgrab > pensive/Notes/Tabdumps/Tabs-`hostname | sed -e 's/\\.local//'`_`date "
 
 ...and then _I close them **all**_; in Safari: Window > Merge All Windows, then close that mega-window, in Chrome, open the File menu and press the `option` key, "Close Window" becomes "Close All".
 
-I check the tabdumps into a private repo I call my "pensieve" (it's a [Harry Potter reference](https://www.wizardingworld.com/writing-by-jk-rowling/pensieve); here is a [template repo](https://github.com/inventhouse/pensieve?tab=readme-ov-file#making-your-own-pensieve) if you want to make your own.)  GitLab/GitHub/Gitea/etc all render Markdown files automatically, so from the newly pushed file I can re-open any tabs I actually _am_ using.
-
+I check the tabdumps into a private repo I call my "pensieve" (it's a [Harry Potter reference](https://www.wizardingworld.com/writing-by-jk-rowling/pensieve); here is a [template repo](https://github.com/inventhouse/pensieve?tab=readme-ov-file#making-your-own-pensieve) if you want to make your own.)  GitLab/GitHub/Gitea/etc all render Markdown files automatically, so from the newly pushed file I can re-open any tabs I actually _am_ using, and I can search in that directory to find links again.
+  I even use it as automatic bookmarking: if I see an interesting link and think I even _might_ want to find it again someday, I'll open it in its own window and minimize it; it'll get collected and saved along with everything else 😁
 ---
