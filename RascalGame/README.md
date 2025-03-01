@@ -58,4 +58,4 @@ On the flip-side, using another mechanism for a life-counter and adding a high-v
 ### Tweak Special Rules
 You could drop the "knife" rule.  Even harder, pull the 2♦️; though it seems of minimal value (which is the main reason I added the knife rule), it means one less monster in a room, which can make all the difference.
 
-Relaxing some of the inventory rules could make it easier; access even if a monster is carrying over, or even access during combat.
+You could drop the inventory rule, forcing more discards of mid-value items.  Or, relaxing some of the inventory rules could make it easier: access even if a monster is carrying over, or even access during combat.
