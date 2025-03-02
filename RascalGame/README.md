@@ -2,7 +2,7 @@ Rascal
 ======
 _A [Scoundrel] Variant_
 
-[Scoundrel] ([BGG]) is a brilliant dungeon-crawling [roguelike] solitaire card game concept; however it has some mechanics I don't care for in the ways they restrict player choice making the outcome depend more on luck than your actions.  I also feel like the concept all-but-demands an inventory, so I developed this variant.
+[Scoundrel] ([BGG]) is a brilliant dungeon-crawling [roguelike] solitaire card game concept; however it has some mechanics I don't care for in the ways they make outcome depend on luck at least as much as player choices.  I also feel like the concept all-but-demands an "inventory", so I developed this variant.
 
 [Scoundrel]: http://stfj.net/art/2011/Scoundrel.pdf
 [BGG]: https://boardgamegeek.com/boardgame/191095/scoundrel
