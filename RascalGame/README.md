@@ -29,7 +29,7 @@ Upon "entering" a room, you may choose to fight or flee; if you flee, all four r
 
 If you fight, cards may be dealt with in any order, but only one at a time:
 - ♦️ When equipping a weapon, any previously held weapon must be discarded.
-- ♣️/♠️ Fighting a monster can be done with or without your equipped weapon.  Fighting barehanded, you take the full damage and discard the monster.  Fighting with your weapon deducts the weapon's current value from the damage taken (face value minus the number of previously vanquished monsters); place the monster on the weapon card to help track it's degraded value.
+- ♣️/♠️ Fighting a monster can be done with or without your equipped weapon.  Fighting barehanded, you take the full damage and discard the monster.  Fighting with your weapon deducts the weapon's current value from the damage taken (face value minus the number of previously vanquished monsters); place the monster on the weapon card to help track its degraded value.
 - ♥️ Taking a healing potion restores life points immediately and is discarded.
 
 Weapons or potions in the room may also simply be discarded.
