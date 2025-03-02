@@ -17,7 +17,7 @@ When damage is taken turn the appropriate value of life points face down; when l
 Thoroughly shuffle remaining cards (2-A ♣️/♠️, 2-10 ♦️/♥️); this will be the "dungeon" where:
 - Black cards (♣️/♠️) are monsters and do damage equal to their value (2-A = 2-14).
 - Diamonds (♦️) are weapons, and prevent damage based on their value, but degrade a point with each use.  You can have only one weapon equipped a time.
-- Hearts (♥️) are healing potions and restore life points up to their value up to the starting life of 20, but only one potion per round is effective.
+- Hearts (♥️) are healing potions and restore life points up to their value up to the starting life of 20, but only one potion per round ("room") is effective.
 
 Layout is up to you and/or the space you are playing; you will need to have a place for the dungeon face-down, your life counter, four room cards face-up, a discard pile, an equipped weapon stack, and an inventory item.
 
