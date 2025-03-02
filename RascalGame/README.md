@@ -10,7 +10,7 @@ _A [Scoundrel] Variant_
 
 Setup
 -----
-Start with a standard 52-card deck (jokers are not used), separate high red cards (J,Q,K,A ♦️/♥️); these can be used as the "life counter" by assigning 1-4 to J-A (1+2+3+4 = 10 x 2 = 20 life)
+Start with a standard 52-card deck (jokers are not used), separate high red cards (J,Q,K,A ♦️/♥️); these can be used as the "life counter" by assigning 1-4 to J-A (1+2+3+4 = 10 x 2 suits = 20 life)
 
 When damage is taken turn the appropriate value of life points face down; when life points are restored, turn that value back face-up.  Life points can never go above 20; if they ever go below one, the game is lost.
 
