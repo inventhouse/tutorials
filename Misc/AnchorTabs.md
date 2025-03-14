@@ -33,6 +33,7 @@ So I Wrote a Script
 usage: tabgrab [-h|--help] [-c|--copy] [BROWSER]
        Collect tabs from all windows as a markdown list of links with
        the first tab of each window as the parent of the remaining tabs.
+       The current tab is marked with ☆ and minimized windows with ▽.
        BROWSER defaults to the BROWSER_APP environment variable, otherwise
        the default handler for 'https' is used to guess the system browser.
 
